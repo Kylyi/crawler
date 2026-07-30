@@ -1,4 +1,4 @@
-name: Deploy fe-vue to Cloudflare Pages
+name: Deploy fe-vue to Cloudflare
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: cloudflare-pages-fe-vue
+  group: cloudflare-fe-vue
   cancel-in-progress: true
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    name: Deploy to Cloudflare Pages
+    name: Deploy to Cloudflare Workers
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -43,12 +43,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build for Cloudflare Pages
+      - name: Build for Cloudflare
         run: pnpm --filter fe-vue run build:cloudflare
 
-      - name: Ensure Cloudflare Pages project exists
-        run: pnpm --filter fe-vue exec wrangler pages project create fe-vue --production-branch main
-        continue-on-error: true
-
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Workers
         run: pnpm --filter fe-vue run deploy:cloudflare
