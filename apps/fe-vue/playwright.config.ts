@@ -15,7 +15,8 @@ import { defineConfig, devices } from "@playwright/test";
 const isCI = !!process.env.CI;
 const configDir = path.dirname(fileURLToPath(import.meta.url));
 const vpBin = path.join(configDir, "node_modules", ".bin", "vp");
-const baseURL = isCI ? "http://localhost:4173" : "http://localhost:5173";
+const port = isCI ? 4173 : 5173;
+const baseURL = `http://localhost:${port}`;
 
 export default defineConfig({
   testDir: "./e2e",
@@ -35,7 +36,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: isCI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: isCI ? "github" : "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -109,7 +110,7 @@ export default defineConfig({
      * Use the preview server on CI for more realistic testing.
      * Playwright will re-use the local server if there is already a dev-server running.
      */
-    command: `${vpBin} ${isCI ? "preview" : "dev"}`,
+    command: `${vpBin} ${isCI ? "preview" : "dev"} --port ${port} --strictPort`,
     cwd: configDir,
     url: baseURL,
     reuseExistingServer: !isCI,

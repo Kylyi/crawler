@@ -9,5 +9,8 @@ const { data } = useQuery({
 </script>
 
 <template>
-  <pre>{{ data }}</pre>
+  <div>
+    <h3>Idk bro</h3>
+    <pre>{{ data }}</pre>
+  </div>
 </template>
