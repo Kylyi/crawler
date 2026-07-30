@@ -10,7 +10,7 @@
     "test:unit": "vp test",
     "test:e2e": "playwright test",
     "build-only": "vp build",
-    "build:pages": "GITHUB_PAGES=true vp build && node scripts/prepare-github-pages.mjs",
+    "build:cloudflare": "NITRO_PRESET=cloudflare_pages vp build",
     "type-check": "vue-tsc --build",
     "lint": "run-s --node-run \"lint:*\"",
     "lint:oxlint": "vp lint . --fix",

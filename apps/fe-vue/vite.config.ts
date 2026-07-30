@@ -6,11 +6,8 @@ import vueDevTools from "vite-plugin-vue-devtools";
 import { lazyPlugins } from "vite-plus";
 import { nitro } from "nitro/vite";
 
-const isGitHubPagesBuild = process.env.GITHUB_PAGES === "true";
-
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.BASE_URL || "/",
   fmt: {
     semi: false,
     singleQuote: true,
@@ -140,13 +137,7 @@ export default defineConfig({
       },
     ],
   },
-  plugins: lazyPlugins(() => [vue(), ...(isGitHubPagesBuild ? [] : [vueDevTools(), nitro()])]),
-  build: isGitHubPagesBuild
-    ? {
-        outDir: "dist",
-        emptyOutDir: true,
-      }
-    : undefined,
+  plugins: lazyPlugins(() => [vue(), vueDevTools(), nitro()]),
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

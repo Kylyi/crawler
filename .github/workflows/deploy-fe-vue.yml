@@ -1,4 +1,4 @@
-name: Deploy fe-vue to GitHub Pages
+name: Deploy fe-vue to Cloudflare Pages
 
 on:
   push:
@@ -12,17 +12,16 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+  group: cloudflare-pages-fe-vue
+  cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Deploy to Cloudflare Pages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,23 +40,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build for GitHub Pages
-        run: pnpm --filter fe-vue run build:pages
-        env:
-          BASE_URL: ${{ github.event.repository.name == format('{0}.github.io', github.repository_owner) && '/' || format('/{0}/', github.event.repository.name) }}
+      - name: Build for Cloudflare Pages
+        run: pnpm --filter fe-vue run build:cloudflare
 
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
         with:
-          path: apps/fe-vue/dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy apps/fe-vue/dist --project-name=fe-vue
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
