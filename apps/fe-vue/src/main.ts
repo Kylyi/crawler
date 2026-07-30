@@ -1,12 +1,14 @@
-import { createApp } from "vue";
+import { createVaporApp } from "vue";
 import { createPinia } from "pinia";
+import { PiniaColada } from "@pinia/colada";
 
 import App from "./App.vue";
 import router from "./router";
 
-const app = createApp(App);
+const app = createVaporApp(App as unknown as any);
 
 app.use(createPinia());
+app.use(PiniaColada);
 app.use(router);
 
 app.mount("#app");

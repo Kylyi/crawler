@@ -5,21 +5,25 @@
   "type": "module",
   "scripts": {
     "dev": "vp dev",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "run-p --node-run type-check \"build-only {@}\" --",
     "preview": "vp preview",
     "test:unit": "vp test",
     "test:e2e": "playwright test",
     "build-only": "vp build",
+    "build:pages": "GITHUB_PAGES=true vp build && node scripts/prepare-github-pages.mjs",
     "type-check": "vue-tsc --build",
-    "lint": "run-s \"lint:*\"",
+    "lint": "run-s --node-run \"lint:*\"",
     "lint:oxlint": "vp lint . --fix",
     "lint:eslint": "vp lint . --fix",
     "format": "vp fmt src/"
   },
   "dependencies": {
+    "@pinia/colada": "catalog:",
+    "@vueuse/core": "catalog:",
     "nitro": "catalog:",
+    "ofetch": "catalog:",
     "pinia": "^4.0.2",
-    "vue": "^3.5.40",
+    "vue": "3.6.0-rc.1",
     "vue-router": "^5.2.0"
   },
   "devDependencies": {
