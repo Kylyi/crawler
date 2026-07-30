@@ -20,6 +20,7 @@ const baseURL = `http://localhost:${port}`;
 
 export default defineConfig({
   testDir: "./e2e",
+  outputDir: "test-results",
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -36,7 +37,13 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: isCI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: isCI ? "github" : "html",
+  reporter: isCI
+    ? [
+        ["github"],
+        ["html", { open: "never" }],
+        ["junit", { outputFile: "test-results/playwright-junit.xml" }],
+      ]
+    : "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -45,6 +52,8 @@ export default defineConfig({
     baseURL,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
+    screenshot: "only-on-failure",
+    video: "retain-on-failure",
 
     /* Only on CI systems run the tests headless */
     headless: isCI,

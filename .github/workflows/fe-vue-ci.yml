@@ -43,19 +43,57 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Get Playwright version
+        id: playwright-version
+        working-directory: apps/fe-vue
+        run: echo "version=$(pnpm exec playwright --version | awk '{print $2}')" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
+
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: pnpm --filter fe-vue exec playwright install --with-deps chromium firefox
+
+      - name: Install Playwright system dependencies
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: pnpm --filter fe-vue exec playwright install-deps chromium firefox
+
       - name: Run unit tests
         run: pnpm --filter fe-vue run test:unit
+        env:
+          CI: true
+
+      - name: Upload unit test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vitest-junit
+          path: apps/fe-vue/test-results/vitest-junit.xml
+          if-no-files-found: ignore
+          retention-days: 14
 
       - name: Build for e2e
         run: pnpm --filter fe-vue run build-only
-
-      - name: Install Playwright browsers
-        run: pnpm --filter fe-vue exec playwright install --with-deps chromium firefox
 
       - name: Run e2e tests
         run: pnpm --filter fe-vue run test:e2e
         env:
           CI: true
+
+      - name: Upload e2e report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            apps/fe-vue/playwright-report/
+            apps/fe-vue/test-results/
+          retention-days: 14
 
   deploy:
     needs: test
