@@ -7,7 +7,7 @@ const isCloudflareDeploy =
   process.env.NITRO_PRESET === "cloudflare-module";
 
 // Cloudflare cron uses 5 fields (minute hour day month weekday), min 1-minute intervals.
-const migrateCron = isCloudflareDeploy ? "0 3 * * *" : "*/5 * * * * *";
+const migrateCron = isCloudflareDeploy ? "*/10 * * * * *" : "*/5 * * * * *";
 
 export default defineConfig({
   serverDir: "./server",
