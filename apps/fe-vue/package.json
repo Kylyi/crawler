@@ -11,6 +11,7 @@
     "test:e2e": "playwright test",
     "build-only": "vp build",
     "build:cloudflare": "NITRO_PRESET=cloudflare_pages vp build",
+    "deploy:cloudflare": "wrangler pages deploy dist --project-name=fe-vue",
     "type-check": "vue-tsc --build",
     "lint": "run-s --node-run \"lint:*\"",
     "lint:oxlint": "vp lint . --fix",
@@ -43,7 +44,8 @@
     "vite-plugin-vue-devtools": "^8.1.5",
     "vite-plus": "catalog:",
     "vue-eslint-parser": "^10.4.1",
-    "vue-tsc": "^3.3.7"
+    "vue-tsc": "^3.3.7",
+    "wrangler": "^4.115.0"
   },
   "devEngines": {
     "packageManager": {
