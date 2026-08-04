@@ -1,4 +1,5 @@
-import { defineConfig } from "vite-plus";
+import { defineConfig } from 'vite-plus'
+import { eslintAlignedFmt, eslintAlignedLint } from '@crawler/eslint-config/oxlint'
 
 export default defineConfig({
   pack: {
@@ -7,11 +8,9 @@ export default defineConfig({
     },
     exports: true,
   },
+  fmt: eslintAlignedFmt,
   lint: {
-    options: {
-      typeAware: true,
-      typeCheck: true,
-    },
+    ...eslintAlignedLint,
+    plugins: ['eslint', 'typescript', 'unicorn', 'oxc'],
   },
-  fmt: {},
-});
+})

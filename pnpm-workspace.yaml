@@ -6,24 +6,45 @@ packages:
 catalogMode: prefer
 
 catalog:
-  "@cloudflare/workers-types": ^5.20260731.1
-  "@pinia/colada": ^1.4.2
-  "@types/node": ^24
-  "@vueuse/core": ^14.4.0
+  '@cloudflare/workers-types': ^5.20260731.1
+  '@pinia/colada': ^1.4.2
+  '@types/node': ^24
+  '@vueuse/core': ^14.4.0
   db0: ^0.3.4
+  eslint: ^10.6.0
   nitro: 3.0.260610-beta
   ofetch: ^1.5.1
   typescript: 7.0.2
   vite: npm:@voidzero-dev/vite-plus-core@0.2.6
   vite-plus: 0.2.6
 overrides:
-  vite: "catalog:"
+  vite: 'catalog:'
   typescript: npm:typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2
+  # fe-nuxt5 / Nuxt 5 nightly: force Vue 3.6 family through nested deps
+  'nuxt-nightly>vue': '3.6.0-rc.1'
+  '@nuxt/vite-builder-nightly>vue': '3.6.0-rc.1'
+  '@nuxt/nitro-server-nightly>vue': '3.6.0-rc.1'
+  'nuxt-nightly>@vue/compiler-core': '3.6.0-rc.1'
+  'nuxt-nightly>@vue/compiler-dom': '3.6.0-rc.1'
+  'nuxt-nightly>@vue/compiler-sfc': '3.6.0-rc.1'
+  'nuxt-nightly>@vue/compiler-ssr': '3.6.0-rc.1'
+  'nuxt-nightly>@vue/compiler-vapor': '3.6.0-rc.1'
+  'nuxt-nightly>@vue/reactivity': '3.6.0-rc.1'
+  'nuxt-nightly>@vue/runtime-core': '3.6.0-rc.1'
+  'nuxt-nightly>@vue/runtime-dom': '3.6.0-rc.1'
+  'nuxt-nightly>@vue/runtime-vapor': '3.6.0-rc.1'
+  'nuxt-nightly>@vue/server-renderer': '3.6.0-rc.1'
+  'nuxt-nightly>@vue/shared': '3.6.0-rc.1'
+  '@nuxt/vite-builder-nightly>@vue/compiler-sfc': '3.6.0-rc.1'
+  '@nuxt/nitro-server-nightly>@vue/shared': '3.6.0-rc.1'
 peerDependencyRules:
   allowAny:
     - vite
+    - vue
   allowedVersions:
-    vite: "*"
+    vite: '*'
+    vue: '*'
 allowBuilds:
   esbuild: true
+  unrs-resolver: true
   workerd: true

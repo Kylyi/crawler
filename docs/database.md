@@ -104,16 +104,16 @@ pnpm db:apply:local
 ## Usage in code
 
 ```ts
-import { useDatabase } from "nitro/database";
+import { useDatabase } from 'nitro/database'
 
-const db = useDatabase();
+const db = useDatabase()
 
 const { rows } = await db.sql`
   SELECT * FROM tenders
   WHERE source = ${source}
   ORDER BY published_at DESC
   LIMIT ${limit}
-`;
+`
 ```
 
 ## Health check

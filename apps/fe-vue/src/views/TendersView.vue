@@ -1,65 +1,71 @@
 <script setup lang="ts" vapor>
-import { useQuery } from "@pinia/colada";
-import { $fetch } from "ofetch";
-import { computed, ref } from "vue";
+import { useQuery } from '@pinia/colada'
+import { $fetch } from 'ofetch'
+import { computed, ref } from 'vue'
 
 type TenderListResponse = {
   items: Array<{
-    id: string;
-    externalId: string;
-    title: string;
-    contractingAuthority: string | null;
-    deadlineAt: string | null;
-    publishedAt: string | null;
-    status: string | null;
-    cpvCodes: string[];
-    categories: string[];
-    url: string;
-    detailFetched: boolean;
-  }>;
-  total: number;
-  page: number;
-  pageSize: number;
-  totalPages: number;
-};
+    id: string
+    externalId: string
+    title: string
+    contractingAuthority: string | null
+    deadlineAt: string | null
+    publishedAt: string | null
+    status: string | null
+    cpvCodes: string[]
+    categories: string[]
+    url: string
+    detailFetched: boolean
+  }>
+  total: number
+  page: number
+  pageSize: number
+  totalPages: number
+}
 
-const page = ref(1);
-const category = ref<string | null>(null);
-const search = ref("");
-const searchInput = ref("");
+const page = ref(1)
+const category = ref<string | null>(null)
+const search = ref('')
+const searchInput = ref('')
 
-const queryKey = computed(() => ["tenders", page.value, category.value, search.value]);
+const queryKey = computed(() => ['tenders', page.value, category.value, search.value])
 
 const { data, isLoading, error } = useQuery({
   key: queryKey,
   query: () => {
     const params = new URLSearchParams({
       page: String(page.value),
-      pageSize: "25",
-    });
-    if (category.value) params.set("category", category.value);
-    if (search.value) params.set("q", search.value);
-    return $fetch<TenderListResponse>(`/api/tenders?${params}`);
+      pageSize: '25',
+    })
+    if (category.value) {
+      params.set('category', category.value)
+    }
+    if (search.value) {
+      params.set('q', search.value)
+    }
+    return $fetch<TenderListResponse>(`/api/tenders?${params}`)
   },
-});
+})
 
 function applySearch() {
-  search.value = searchInput.value.trim();
-  page.value = 1;
+  search.value = searchInput.value.trim()
+  page.value = 1
 }
 
 function toggleCategory(value: string) {
-  category.value = category.value === value ? null : value;
-  page.value = 1;
+  category.value = category.value === value ? null : value
+  page.value = 1
 }
 
 function formatDate(value: string | null): string {
-  if (!value) return "—";
-  return new Date(value).toLocaleDateString("cs-CZ", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
+  if (!value) {
+    return '—'
+  }
+  return new Date(value).toLocaleDateString('cs-CZ', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  })
 }
 </script>
 
@@ -76,22 +82,16 @@ function formatDate(value: string | null): string {
         <button type="submit">Search</button>
       </form>
       <div class="filters">
-        <button type="button" :class="{ active: category === 'IT' }" @click="toggleCategory('IT')">
-          IT
-        </button>
-        <button
-          type="button"
-          :class="{ active: category === 'Construction' }"
-          @click="toggleCategory('Construction')"
-        >
+        <button type="button" :class="{ active: category === 'IT' }" @click="toggleCategory('IT')">IT</button>
+        <button type="button" :class="{ active: category === 'Construction' }" @click="toggleCategory('Construction')">
           Construction
         </button>
         <button
           type="button"
           :class="{ active: !category }"
           @click="
-            category = null;
-            page = 1;
+            category = null
+            page = 1
           "
         >
           All
@@ -118,7 +118,7 @@ function formatDate(value: string | null): string {
             <a :href="tender.url" target="_blank" rel="noopener">{{ tender.title }}</a>
             <span class="id">{{ tender.externalId }}</span>
           </td>
-          <td>{{ tender.contractingAuthority ?? "—" }}</td>
+          <td>{{ tender.contractingAuthority ?? '—' }}</td>
           <td>{{ formatDate(tender.deadlineAt) }}</td>
           <td>
             <span v-for="cat in tender.categories" :key="cat" class="badge">{{ cat }}</span>

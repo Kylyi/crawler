@@ -153,12 +153,7 @@ State bodies, cities, regions, and universities frequently host procurement proc
     ```json
     {
       "q": "ND = [CZ] AND PC = [72000000]",
-      "fields": [
-        "publication-number",
-        "title-cz",
-        "deadline-receipt-requests",
-        "buyer-name-official"
-      ]
+      "fields": ["publication-number", "title-cz", "deadline-receipt-requests", "buyer-name-official"]
     }
     ```
   - **Pros**: Free, reliable REST API, rich XML/JSON payloads, standardized CPV coding.

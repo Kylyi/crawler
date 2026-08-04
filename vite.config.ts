@@ -1,16 +1,13 @@
-import { defineConfig } from "vite-plus";
+import { defineConfig } from 'vite-plus'
+import { eslintAlignedFmt, eslintAlignedLint } from '@crawler/eslint-config/oxlint'
 
 export default defineConfig({
   staged: {
-    "*": "vp check --fix",
+    '*': 'vp check --fix',
   },
-  fmt: {},
-  lint: {
-    jsPlugins: [{ name: "vite-plus", specifier: "vite-plus/oxlint-plugin" }],
-    rules: { "vite-plus/prefer-vite-plus-imports": "error" },
-    options: { typeAware: true, typeCheck: true },
-  },
+  fmt: eslintAlignedFmt,
+  lint: eslintAlignedLint,
   run: {
     cache: true,
   },
-});
+})

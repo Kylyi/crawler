@@ -1,26 +1,27 @@
-import { useDatabase } from "nitro/database";
+import { useDatabase } from 'nitro/database'
 import type {
   CrawlRunStatus,
+  CrawlStore,
   NormalizedTender,
   SourceRow,
   TenderDetailPatch,
   TenderDocumentInput,
   TenderNeedingDetail,
-} from "./types";
-import { createId, mergeRawData, parseJson, parseRawData, toJson } from "./utils";
+} from 'crawlers'
+import { createId, mergeRawData, parseJson, parseRawData, toJson } from 'crawlers'
 
 export async function getSourceBySlug(slug: string): Promise<SourceRow | null> {
-  const db = useDatabase();
+  const db = useDatabase()
   const { rows } = await db.sql`
     SELECT id, slug, name, config FROM sources WHERE slug = ${slug} LIMIT 1
-  `;
-  return (rows?.[0] as SourceRow | undefined) ?? null;
+  `
+  return (rows?.[0] as SourceRow | undefined) ?? null
 }
 
 export async function startCrawlRun(sourceSlug: string): Promise<string> {
-  const db = useDatabase();
-  const source = await getSourceBySlug(sourceSlug);
-  const runId = createId();
+  const db = useDatabase()
+  const source = await getSourceBySlug(sourceSlug)
+  const runId = createId()
 
   await db.sql`
     INSERT INTO crawl_runs (id, source, source_id, status, tenders_found)
@@ -28,23 +29,23 @@ export async function startCrawlRun(sourceSlug: string): Promise<string> {
       ${runId},
       ${sourceSlug},
       ${source?.id ?? null},
-      ${"running"},
+      ${'running'},
       ${0}
     )
-  `;
+  `
 
-  return runId;
+  return runId
 }
 
 export async function finishCrawlRun(
   runId: string,
   result: {
-    status: CrawlRunStatus;
-    tendersFound: number;
-    errorMessage?: string;
+    status: CrawlRunStatus
+    tendersFound: number
+    errorMessage?: string
   },
 ): Promise<void> {
-  const db = useDatabase();
+  const db = useDatabase()
 
   await db.sql`
     UPDATE crawl_runs
@@ -54,26 +55,26 @@ export async function finishCrawlRun(
       finished_at = datetime('now'),
       error_message = ${result.errorMessage ?? null}
     WHERE id = ${runId}
-  `;
+  `
 }
 
 export async function upsertTender(source: string, tender: NormalizedTender): Promise<void> {
-  const db = useDatabase();
-  const id = createId();
-  const cpvCodes = tender.cpvCodes ? toJson(tender.cpvCodes) : null;
-  const tags = tender.tags?.length ? toJson(tender.tags) : null;
-  const categories = tender.categories?.length ? toJson(tender.categories) : null;
+  const db = useDatabase()
+  const id = createId()
+  const cpvCodes = tender.cpvCodes ? toJson(tender.cpvCodes) : null
+  const tags = tender.tags?.length ? toJson(tender.tags) : null
+  const categories = tender.categories?.length ? toJson(tender.categories) : null
 
   const { rows: existingRows } = await db.sql`
     SELECT raw_data FROM tenders
     WHERE source = ${source} AND external_id = ${tender.externalId}
     LIMIT 1
-  `;
+  `
   const existingRaw = parseRawData(
     parseJson((existingRows?.[0] as { raw_data: string | null } | undefined)?.raw_data, null),
-  );
-  const listPayload = parseRawData(tender.rawData).list ?? tender.rawData;
-  const rawData = toJson(mergeRawData(existingRaw, { list: listPayload }));
+  )
+  const listPayload = parseRawData(tender.rawData).list ?? tender.rawData
+  const rawData = toJson(mergeRawData(existingRaw, { list: listPayload }))
 
   await db.sql`
     INSERT INTO tenders (
@@ -92,7 +93,7 @@ export async function upsertTender(source: string, tender: NormalizedTender): Pr
       ${tender.publishedAt ?? null},
       ${tender.url},
       ${tender.estimatedValue ?? null},
-      ${tender.currency ?? "CZK"},
+      ${tender.currency ?? 'CZK'},
       ${tender.status ?? null},
       ${rawData},
       ${tender.noticeNumber ?? null},
@@ -124,71 +125,61 @@ export async function upsertTender(source: string, tender: NormalizedTender): Pr
       categories = COALESCE(excluded.categories, tenders.categories),
       last_seen_at = datetime('now'),
       updated_at = datetime('now')
-  `;
+  `
 }
 
-export async function getTendersNeedingDetail(
-  source: string,
-  limit: number,
-): Promise<TenderNeedingDetail[]> {
-  const db = useDatabase();
+export async function getTendersNeedingDetail(source: string, limit: number): Promise<TenderNeedingDetail[]> {
+  const db = useDatabase()
   const { rows } = await db.sql`
     SELECT id, external_id
     FROM tenders
     WHERE source = ${source} AND detail_fetched_at IS NULL
     ORDER BY COALESCE(published_at, updated_at, created_at) DESC
     LIMIT ${limit}
-  `;
+  `
 
   return (rows ?? []).map((row) => {
-    const typed = row as { id: string; external_id: string };
+    const typed = row as { id: string; external_id: string }
     return {
       id: typed.id,
       externalId: typed.external_id,
-    };
-  });
+    }
+  })
 }
 
-export async function getTenderByExternalId(
-  source: string,
-  externalId: string,
-): Promise<{ id: string } | null> {
-  const db = useDatabase();
+export async function getTenderByExternalId(source: string, externalId: string): Promise<{ id: string } | null> {
+  const db = useDatabase()
   const { rows } = await db.sql`
     SELECT id FROM tenders
     WHERE source = ${source} AND external_id = ${externalId}
     LIMIT 1
-  `;
-  return (rows?.[0] as { id: string } | undefined) ?? null;
+  `
+  return (rows?.[0] as { id: string } | undefined) ?? null
 }
 
-export async function enrichTender(
-  source: string,
-  externalId: string,
-  patch: TenderDetailPatch,
-): Promise<void> {
-  const db = useDatabase();
+export async function enrichTender(source: string, externalId: string, patch: TenderDetailPatch): Promise<void> {
+  const db = useDatabase()
 
   const { rows: existingRows } = await db.sql`
     SELECT raw_data FROM tenders
     WHERE source = ${source} AND external_id = ${externalId}
     LIMIT 1
-  `;
+  `
   const mergedRaw = mergeRawData(
     parseJson((existingRows?.[0] as { raw_data: string | null } | undefined)?.raw_data, null),
     patch.rawDataDetail !== undefined ? { detail: patch.rawDataDetail } : {},
-  );
-  const rawData = toJson(mergedRaw);
+  )
+  const rawData = toJson(mergedRaw)
 
-  const cpvCodes = patch.cpvCodes ? toJson(patch.cpvCodes) : null;
-  const tags = patch.tags ? toJson(patch.tags) : null;
-  const categories = patch.categories ? toJson(patch.categories) : null;
+  const cpvCodes = patch.cpvCodes ? toJson(patch.cpvCodes) : null
+  const tags = patch.tags ? toJson(patch.tags) : null
+  const categories = patch.categories ? toJson(patch.categories) : null
 
   await db.sql`
     UPDATE tenders SET
       description = CASE
         WHEN ${patch.description ?? null} IS NOT NULL
-          AND length(${patch.description ?? ""}) > length(COALESCE(description, ''))
+          AND length(${patch.description ?? ''}) > length(COALESCE(description, ''))
         THEN ${patch.description ?? null}
         ELSE description
       END,
@@ -201,27 +192,24 @@ export async function enrichTender(
       raw_data = ${rawData},
       updated_at = datetime('now')
     WHERE source = ${source} AND external_id = ${externalId}
-  `;
+  `
 }
 
 export async function markDetailFetched(source: string, externalId: string): Promise<void> {
-  const db = useDatabase();
+  const db = useDatabase()
   await db.sql`
     UPDATE tenders
     SET detail_fetched_at = datetime('now'), updated_at = datetime('now')
     WHERE source = ${source} AND external_id = ${externalId}
-  `;
+  `
 }
 
-export async function replaceTenderDocuments(
-  tenderId: string,
-  documents: TenderDocumentInput[],
-): Promise<void> {
-  const db = useDatabase();
+export async function replaceTenderDocuments(tenderId: string, documents: TenderDocumentInput[]): Promise<void> {
+  const db = useDatabase()
 
   await db.sql`
     DELETE FROM tender_documents WHERE tender_id = ${tenderId}
-  `;
+  `
 
   for (const doc of documents) {
     await db.sql`
@@ -234,6 +222,18 @@ export async function replaceTenderDocuments(
         ${doc.mimeType ?? null},
         datetime('now')
       )
-    `;
+    `
   }
+}
+
+export const nitroCrawlStore: CrawlStore = {
+  getSourceBySlug,
+  startCrawlRun,
+  finishCrawlRun,
+  upsertTender,
+  getTendersNeedingDetail,
+  getTenderByExternalId,
+  enrichTender,
+  markDetailFetched,
+  replaceTenderDocuments,
 }

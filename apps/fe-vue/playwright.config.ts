@@ -1,7 +1,7 @@
-import process from "node:process";
-import { fileURLToPath } from "node:url";
-import path from "node:path";
-import { defineConfig, devices } from "@playwright/test";
+import process from 'node:process'
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
+import { defineConfig, devices } from '@playwright/test'
 
 /**
  * Read environment variables from file.
@@ -12,15 +12,15 @@ import { defineConfig, devices } from "@playwright/test";
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-const isCI = !!process.env.CI;
-const configDir = path.dirname(fileURLToPath(import.meta.url));
-const vpBin = path.join(configDir, "node_modules", ".bin", "vp");
-const port = isCI ? 4173 : 5173;
-const baseURL = `http://localhost:${port}`;
+const isCI = !!process.env.CI
+const configDir = path.dirname(fileURLToPath(import.meta.url))
+const vpBin = path.join(configDir, 'node_modules', '.bin', 'vp')
+const port = isCI ? 4173 : 5173
+const baseURL = `http://localhost:${port}`
 
 export default defineConfig({
-  testDir: "./e2e",
-  outputDir: "test-results",
+  testDir: './e2e',
+  outputDir: 'test-results',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -38,12 +38,8 @@ export default defineConfig({
   workers: isCI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: isCI
-    ? [
-        ["github"],
-        ["html", { open: "never" }],
-        ["junit", { outputFile: "test-results/playwright-junit.xml" }],
-      ]
-    : "html",
+    ? [['github'], ['html', { open: 'never' }], ['junit', { outputFile: 'test-results/playwright-junit.xml' }]]
+    : 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -51,9 +47,9 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
-    screenshot: "only-on-failure",
-    video: "retain-on-failure",
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
 
     /* Only on CI systems run the tests headless */
     headless: isCI,
@@ -62,15 +58,15 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
+      name: 'chromium',
       use: {
-        ...devices["Desktop Chrome"],
+        ...devices['Desktop Chrome'],
       },
     },
     {
-      name: "firefox",
+      name: 'firefox',
       use: {
-        ...devices["Desktop Firefox"],
+        ...devices['Desktop Firefox'],
       },
     },
     // {
@@ -119,11 +115,11 @@ export default defineConfig({
      * Use the preview server on CI for more realistic testing.
      * Playwright will re-use the local server if there is already a dev-server running.
      */
-    command: `${vpBin} ${isCI ? "preview" : "dev"} --port ${port} --strictPort`,
+    command: `${vpBin} ${isCI ? 'preview' : 'dev'} --port ${port} --strictPort`,
     cwd: configDir,
     url: baseURL,
     reuseExistingServer: !isCI,
-    stdout: "pipe",
-    stderr: "pipe",
+    stdout: 'pipe',
+    stderr: 'pipe',
   },
-});
+})

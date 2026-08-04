@@ -1,14 +1,15 @@
-import { createVaporApp } from "vue";
-import { createPinia } from "pinia";
-import { PiniaColada } from "@pinia/colada";
+import { createVaporApp } from 'vue'
+import { createPinia } from 'pinia'
+import { PiniaColada } from '@pinia/colada'
 
-import App from "./App.vue";
-import router from "./router";
+import App from './App.vue'
+import router from './router'
 
-const app = createVaporApp(App as unknown as any);
+// oxlint-disable-next-line typescript/no-explicit-any
+const app = createVaporApp(App as unknown as any)
 
-app.use(createPinia());
-app.use(PiniaColada);
-app.use(router);
+app.use(createPinia())
+app.use(PiniaColada)
+app.use(router)
 
-app.mount("#app");
+app.mount('#app')

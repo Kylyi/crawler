@@ -1,5 +1,5 @@
 <script setup lang="ts" vapor>
-import { RouterLink, RouterView } from "vue-router";
+import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>

@@ -1,7 +1,7 @@
-import { defineConfig } from "vite-plus";
+import { defineConfig } from 'vite-plus'
 
 export default defineConfig({
   test: {
-    projects: ["./apps/fe-vue/vitest.config.ts"],
+    projects: ['./apps/fe-vue/vitest.config.ts'],
   },
-});
+})

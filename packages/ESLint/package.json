@@ -1,0 +1,31 @@
+{
+  "name": "@crawler/eslint-config",
+  "private": true,
+  "type": "module",
+  "main": "./eslint.config.mjs",
+  "types": "./eslint.config.d.mts",
+  "exports": {
+    ".": {
+      "types": "./eslint.config.d.mts",
+      "default": "./eslint.config.mjs"
+    },
+    "./typescript": {
+      "types": "./typescript.d.mts",
+      "default": "./typescript.mjs"
+    },
+    "./vue": {
+      "types": "./vue.d.mts",
+      "default": "./vue.mjs"
+    },
+    "./oxlint": {
+      "types": "./oxlint.d.mts",
+      "default": "./oxlint.mjs"
+    }
+  },
+  "dependencies": {
+    "@antfu/eslint-config": "9.1.0",
+    "@nuxt/eslint-config": "1.16.0",
+    "eslint": "catalog:",
+    "eslint-plugin-format": "2.0.1"
+  }
+}

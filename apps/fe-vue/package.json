@@ -21,13 +21,14 @@
     "crawl:zakazky-gov:catch-up": "curl -s -X POST 'http://localhost:3000/api/crawl/zakazky-gov/catch-up?limit=50'",
     "type-check": "vue-tsc --build",
     "lint": "run-s --node-run \"lint:*\"",
-    "lint:oxlint": "vp lint . --fix",
-    "lint:eslint": "vp lint . --fix",
+    "lint:oxlint": "vp lint .",
+    "lint:eslint": "eslint .",
     "format": "vp fmt src/"
   },
   "dependencies": {
     "@pinia/colada": "catalog:",
     "@vueuse/core": "catalog:",
+    "crawlers": "workspace:*",
     "nitro": "catalog:",
     "ofetch": "catalog:",
     "pinia": "^4.0.2",
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "catalog:",
+    "@crawler/eslint-config": "workspace:*",
     "@playwright/test": "^1.61.1",
     "@tsconfig/node24": "^24.0.4",
     "@types/jsdom": "^28.0.3",
@@ -43,6 +45,7 @@
     "@vitejs/plugin-vue": "^6.0.8",
     "@vue/test-utils": "^2.4.11",
     "@vue/tsconfig": "^0.9.1",
+    "eslint": "catalog:",
     "eslint-plugin-playwright": "^2.10.5",
     "jsdom": "^29.1.1",
     "npm-run-all2": "^9.0.2",

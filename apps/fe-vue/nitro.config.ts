@@ -1,13 +1,13 @@
-import { defineConfig } from "nitro";
+import { defineConfig } from 'nitro'
 
 export default defineConfig({
-  serverDir: "./server",
-  compatibilityDate: "2025-04-01",
+  serverDir: './server',
+  compatibilityDate: '2025-04-01',
   cloudflare: {
     deployConfig: true,
     nodeCompat: true,
     wrangler: {
-      name: "fe-vue",
+      name: 'fe-vue',
     },
   },
   experimental: {
@@ -16,23 +16,23 @@ export default defineConfig({
     tasks: true,
   },
   scheduledTasks: {
-    "*/30 * * * *": ["crawl-zakazky-gov"],
-    "15,45 * * * *": ["crawl-zakazky-gov-detail"],
+    '*/30 * * * *': ['crawl-zakazky-gov'],
+    '15,45 * * * *': ['crawl-zakazky-gov-detail'],
   },
   database: {
     default: {
-      connector: "cloudflare-d1",
+      connector: 'cloudflare-d1',
       options: {
-        bindingName: "DB",
+        bindingName: 'DB',
       },
     },
   },
   devDatabase: {
     default: {
-      connector: "sqlite",
+      connector: 'sqlite',
       options: {
-        name: "dev-db",
+        name: 'dev-db',
       },
     },
   },
-});
+})
