@@ -6,9 +6,11 @@ packages:
 catalogMode: prefer
 
 catalog:
+  "@cloudflare/workers-types": ^5.20260731.1
   "@pinia/colada": ^1.4.2
   "@types/node": ^24
   "@vueuse/core": ^14.4.0
+  db0: ^0.3.4
   nitro: 3.0.260610-beta
   ofetch: ^1.5.1
   typescript: 7.0.2

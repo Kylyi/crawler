@@ -1,14 +1,5 @@
 import { defineConfig } from "nitro";
 
-const isCloudflareDeploy =
-  process.env.NITRO_PRESET === "cloudflare_pages" ||
-  process.env.NITRO_PRESET === "cloudflare-pages" ||
-  process.env.NITRO_PRESET === "cloudflare_module" ||
-  process.env.NITRO_PRESET === "cloudflare-module";
-
-// Cloudflare cron: 5 fields (minute hour day month weekday). No seconds field.
-const migrateCron = isCloudflareDeploy ? "*/1 * * * *" : "*/5 * * * * *";
-
 export default defineConfig({
   serverDir: "./server",
   compatibilityDate: "2025-04-01",
@@ -21,9 +12,27 @@ export default defineConfig({
   },
   experimental: {
     asyncContext: true,
+    database: true,
     tasks: true,
   },
   scheduledTasks: {
-    [migrateCron]: ["db:migrate"],
+    "*/30 * * * *": ["crawl-zakazky-gov"],
+    "15,45 * * * *": ["crawl-zakazky-gov-detail"],
+  },
+  database: {
+    default: {
+      connector: "cloudflare-d1",
+      options: {
+        bindingName: "DB",
+      },
+    },
+  },
+  devDatabase: {
+    default: {
+      connector: "sqlite",
+      options: {
+        name: "dev-db",
+      },
+    },
   },
 });

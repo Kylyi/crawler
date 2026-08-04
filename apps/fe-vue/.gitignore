@@ -16,6 +16,8 @@ coverage
 .output
 .nitro
 .wrangler
+.data
+.dev.vars
 
 # Editor directories and files
 .vscode/*

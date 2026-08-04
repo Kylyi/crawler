@@ -1,0 +1,34 @@
+{
+  "polozky": [
+    {
+      "identifikator_NIPEZ": "RVZ2600114100",
+      "nazev_verejne_zakazky": "Komunální FVE – Obec Světice – II.",
+      "popis_predmetu": "Tato veřejná zakázka je zadávána formou Design \u0026 Build. Předmět veřejné zakázky je rozdělen na tři etapy:\n• v rámci první etapa jsou předmětem služby spočívající ve vypracování statického posudku, PBŘ a příslušných stupňů projektové dokumentace, za účelem vybudování FVE na 3 budovách ve vlastnictví zadavatele.\n• Předmětem druhé etapa veřejné zakázky jsou dodávky, tj. následná realizace projektovaných prací, a to instalace FVE a jejich uvedení do provozu včetně potřebných materiálů a zařízení nezbytných pro řádné dokončení díla.\n• Předmětem třetí etapy veřejné zakázky jsou administrativní kroky, jako umožnění trvalého provozu (UTP) včetně související inženýrské činnosti, revizních činností a nastavení energetického managementu pro sdílení elektřiny z FVE v rámci obce.",
+      "nazev_zadavatele": "Obec Světice",
+      "lhuta_pro_podani": "2026-08-20T08:00:00Z",
+      "stav": "AKTIVNI_NEUKONCEN",
+      "typ_zadavaciho_postupu": "VEREJNA_ZAKAZKA",
+      "stitky": ["#Energetika", "#ArchitektonickeAProjekcniSluzby"]
+    },
+    {
+      "identifikator_NIPEZ": "RVZ2600114099",
+      "nazev_verejne_zakazky": "Správa informačních technologií, počítačové sítě a poskytování souvisejících ICT služeb pro Město Kraslice a napojené organizace",
+      "popis_predmetu": "Předmětem veřejné zakázky je dlouhodobé a pravidelné poskytování služeb správy, podpory, provozu a rozvoje ICT prostředí zadavatele",
+      "nazev_zadavatele": "Město Kraslice",
+      "lhuta_pro_podani": "2026-08-20T08:00:00Z",
+      "stav": "AKTIVNI_NEUKONCEN",
+      "typ_zadavaciho_postupu": "VEREJNA_ZAKAZKA",
+      "stitky": ["#ItSluzby", "#OdborneSluzby"]
+    },
+    {
+      "identifikator_NIPEZ": "RVZ2600114098",
+      "nazev_verejne_zakazky": "PTK - Podpora datových center",
+      "popis_predmetu": "je poskytování služeb podpory infrastruktury DC a RP VZP ČR 2027-2031.",
+      "nazev_zadavatele": "VŠEOBECNÁ ZDRAVOTNÍ POJIŠŤOVNA ČESKÉ REPUBLIKY",
+      "lhuta_pro_podani": "2026-08-14T10:00:00Z",
+      "stav": "AKTIVNI_NEUKONCEN",
+      "typ_zadavaciho_postupu": "VEREJNA_ZAKAZKA"
+    }
+  ],
+  "posledni_stranka": false
+}

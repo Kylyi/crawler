@@ -205,6 +205,9 @@ settings:
 
 catalogs:
   default:
+    '@cloudflare/workers-types':
+      specifier: ^5.20260731.1
+      version: 5.20260731.1
     '@pinia/colada':
       specifier: ^1.4.2
       version: 1.4.2
@@ -250,7 +253,7 @@ importers:
         version: 14.4.0(vue@3.6.0-rc.1(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2))
       nitro:
         specifier: 'catalog:'
-        version: 3.0.260610-beta(@voidzero-dev/vite-plus-core@0.2.6(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2)(yaml@2.9.0))(chokidar@5.0.0)(jiti@2.7.0)(lru-cache@11.5.2)(miniflare@4.20260722.1)(wrangler@4.115.0)
+        version: 3.0.260610-beta(@voidzero-dev/vite-plus-core@0.2.6(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2)(yaml@2.9.0))(chokidar@5.0.0)(jiti@2.7.0)(lru-cache@11.5.2)(miniflare@4.20260722.1)(wrangler@4.115.0(@cloudflare/workers-types@5.20260731.1))
       ofetch:
         specifier: 'catalog:'
         version: 1.5.1
@@ -264,6 +267,9 @@ importers:
         specifier: ^5.2.0
         version: 5.2.0(@pinia/colada@1.4.2(pinia@4.0.2(@vue/devtools-api@8.2.1)(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2)(vue@3.6.0-rc.1(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2)))(vue@3.6.0-rc.1(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2)))(@voidzero-dev/vite-plus-core@0.2.6(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2)(yaml@2.9.0))(@vue/compiler-sfc@3.5.40)(esbuild@0.28.1)(pinia@4.0.2(@vue/devtools-api@8.2.1)(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2)(vue@3.6.0-rc.1(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2)))(rolldown@1.2.1)(vue@3.6.0-rc.1(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2))
     devDependencies:
+      '@cloudflare/workers-types':
+        specifier: 'catalog:'
+        version: 5.20260731.1
       '@playwright/test':
         specifier: ^1.61.1
         version: 1.62.0
@@ -288,9 +294,6 @@ importers:
       eslint-plugin-playwright:
         specifier: ^2.10.5
         version: 2.11.0(eslint@10.8.0(jiti@2.7.0)(supports-color@10.2.2))
-      jiti:
-        specifier: ^2.7.0
-        version: 2.7.0
       jsdom:
         specifier: ^29.1.1
         version: 29.1.1
@@ -317,7 +320,7 @@ importers:
         version: 3.3.8(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2)
       wrangler:
         specifier: ^4.115.0
-        version: 4.115.0
+        version: 4.115.0(@cloudflare/workers-types@5.20260731.1)
 
   packages/utils:
     devDependencies:
@@ -568,6 +571,9 @@ packages:
     engines: {node: '>=16'}
     cpu: [x64]
     os: [win32]
+
+  '@cloudflare/workers-types@5.20260731.1':
+    resolution: {integrity: sha512-ly+eua642FCR2nbQGi/OxqlVaJI3fNdyqK7G4u6jWCAZ4WYhOBvZWyf0M7s5zurWbNQW3YjelOxuKqR0zYK90w==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -3739,6 +3745,8 @@ snapshots:
   '@cloudflare/workerd-windows-64@1.20260722.1':
     optional: true
 
+  '@cloudflare/workers-types@5.20260731.1': {}
+
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
@@ -5047,7 +5055,7 @@ snapshots:
 
   entities@8.0.0: {}
 
-  env-runner@0.1.16(miniflare@4.20260722.1)(wrangler@4.115.0):
+  env-runner@0.1.16(miniflare@4.20260722.1)(wrangler@4.115.0(@cloudflare/workers-types@5.20260731.1)):
     dependencies:
       crossws: 0.4.10(srvx@0.11.22)
       exsolve: 1.1.1
@@ -5055,7 +5063,7 @@ snapshots:
       srvx: 0.11.22
     optionalDependencies:
       miniflare: 4.20260722.1
-      wrangler: 4.115.0
+      wrangler: 4.115.0(@cloudflare/workers-types@5.20260731.1)
 
   error-stack-parser-es@1.0.5: {}
 
@@ -5475,12 +5483,12 @@ snapshots:
 
   nf3@0.3.23: {}
 
-  nitro@3.0.260610-beta(@voidzero-dev/vite-plus-core@0.2.6(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2)(yaml@2.9.0))(chokidar@5.0.0)(jiti@2.7.0)(lru-cache@11.5.2)(miniflare@4.20260722.1)(wrangler@4.115.0):
+  nitro@3.0.260610-beta(@voidzero-dev/vite-plus-core@0.2.6(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0)(typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2)(yaml@2.9.0))(chokidar@5.0.0)(jiti@2.7.0)(lru-cache@11.5.2)(miniflare@4.20260722.1)(wrangler@4.115.0(@cloudflare/workers-types@5.20260731.1)):
     dependencies:
       consola: 3.4.2
       crossws: 0.4.10(srvx@0.11.22)
       db0: 0.3.4
-      env-runner: 0.1.16(miniflare@4.20260722.1)(wrangler@4.115.0)
+      env-runner: 0.1.16(miniflare@4.20260722.1)(wrangler@4.115.0(@cloudflare/workers-types@5.20260731.1))
       h3: 2.0.1-rc.22(crossws@0.4.10(srvx@0.11.22))
       hookable: 6.1.1
       nf3: 0.3.23
@@ -6354,7 +6362,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20260722.1
       '@cloudflare/workerd-windows-64': 1.20260722.1
 
-  wrangler@4.115.0:
+  wrangler@4.115.0(@cloudflare/workers-types@5.20260731.1):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.1(unenv@2.0.0-rc.24)(workerd@1.20260722.1)
@@ -6365,6 +6373,7 @@ snapshots:
       unenv: 2.0.0-rc.24
       workerd: 1.20260722.1
     optionalDependencies:
+      '@cloudflare/workers-types': 5.20260731.1
       fsevents: 2.3.3
     transitivePeerDependencies:
       - bufferutil

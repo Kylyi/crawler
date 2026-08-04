@@ -1,0 +1,89 @@
+{
+  "identifikator_NIPEZ": "RVZ2600114099",
+  "identifikatory_v_elektronickem_nastroji": [
+    { "kod_nastroje": "TA", "identifikator": "e70ce6a1-6adb-4a76-aaff-6519334bc937" }
+  ],
+  "interni_identifikator_verejne_zakazky_prideleny_zadavatelem": "VZ0256114",
+  "nazev_verejne_zakazky": "Správa informačních technologií, počítačové sítě a poskytování souvisejících ICT služeb pro Město Kraslice a napojené organizace",
+  "predpokladana_hodnota_bude_uverejnena": false,
+  "druh_verejne_zakazky": "SLUZBY",
+  "predmet": {
+    "popis_predmetu": "Předmětem veřejné zakázky je dlouhodobé a pravidelné poskytování služeb správy, podpory, provozu a rozvoje ICT prostředí zadavatele",
+    "hlavni_kod_cpv": "72000000",
+    "mista_plneni": [{ "nuts": "CZ041" }]
+  },
+  "typ_verejne_zakazky_dle_vyse_predpokladane_hodnoty": "VEREJNA_ZAKAZKA_MALEHO_ROZSAHU",
+  "casti_verejne_zakazky": [
+    {
+      "identifikator_NIPEZ": "RVZ2600114099/001",
+      "interni_identifikator_prideleny_zadavatelem": "VZ0256114",
+      "nazev_casti_verejne_zakazky": "Správa informačních technologií, počítačové sítě a poskytování souvisejících ICT služeb pro Město Kraslice a napojené organizace",
+      "predpokladana_hodnota_bude_uverejnena": false,
+      "druh_casti_verejne_zakazky": "SLUZBY",
+      "rezim_casti_verejne_zakazky": "VEREJNE_ZAKAZKY_MALEHO_ROZSAHU",
+      "predmet": {
+        "popis_predmetu": "Předmětem veřejné zakázky je dlouhodobé a pravidelné poskytování služeb správy, podpory, provozu a rozvoje ICT prostředí zadavatele",
+        "hlavni_kod_cpv": "72000000",
+        "mista_plneni": [{ "nuts": "CZ041" }]
+      },
+      "zadavaci_postup_pro_cast": {
+        "stav": "AKTIVNI_NEUKONCEN",
+        "druh_zadavaciho_postupu": "OTEVRENA_VYZVA_PRI_ZADAVANI_VEREJNYCH_ZAKAZEK_MALEHO_ROZSAHU",
+        "datum_zahajeni_zadavaciho_postupu": "2026-07-30T22:00:00Z",
+        "lhuty": [
+          {
+            "druh_lhuty": "LHUTA_PRO_PODANI_NABIDKY",
+            "datum_a_cas_zacatku_lhuty": "2026-07-31T15:42:48Z",
+            "datum_a_cas_konce_lhuty": "2026-08-20T08:00:00Z"
+          }
+        ],
+        "pravidla_pro_hodnoceni": { "pouziti_elektronicke_aukce_v_zadavacim_postupu": false },
+        "dokumenty": [
+          {
+            "typ_dokumentu": "ZADAVACI_PODMINKY_TYP_DOKUMENTU",
+            "nazev": "Přílohy ZD.zip",
+            "odkaz": "1c1e9c14-e884-4213-bfed-529491491e25",
+            "velikost": 301744,
+            "datum_vytvoreni": "2026-07-31T15:42:23Z",
+            "dokument_uverejnen": true,
+            "dokument_nahran": true
+          },
+          {
+            "typ_dokumentu": "ZADAVACI_PODMINKY_TYP_DOKUMENTU",
+            "nazev": "Zadávací dokumentace.pdf",
+            "odkaz": "8001a3bc-3f80-4561-ab73-680dc98d4c90",
+            "velikost": 787355,
+            "datum_vytvoreni": "2026-07-31T15:41:49Z",
+            "dokument_uverejnen": true,
+            "dokument_nahran": true
+          }
+        ],
+        "odkaz_na_profil": "https://tenderarena.cz/dodavatel/zakazka/906220",
+        "verejny_ZP": true
+      }
+    }
+  ],
+  "zadavaci_postupy": [
+    {
+      "identifikator_NIPEZ": "ZP/RVZ2600114099/001",
+      "zadavatel_zadavaciho_postupu": {
+        "zadavatele": [
+          {
+            "kategorie_zadavatele": "CESKA_REPUBLIKA",
+            "zadava_zadavaci_postup": true,
+            "adresa_profilu": "https://www.profilyzadavatelu.cz/profil/meskrasli/",
+            "subjekt": {
+              "nazev_subjektu": "Město Kraslice",
+              "ico": "00259438",
+              "sidlo": "nám. 28. října 1438/6, 35801 Kraslice",
+              "stat_adresa": "CZE"
+            }
+          }
+        ]
+      },
+      "zadavaci_postupy_pro_casti": [{ "identifikator_NIPEZ": "RVZ2600114099/001" }]
+    }
+  ],
+  "uverejneniNaZakazkyGov": "2026-07-31T15:42:53.008Z",
+  "stitky": ["#ItSluzby", "#OdborneSluzby"]
+}
