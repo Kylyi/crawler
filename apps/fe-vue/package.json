@@ -22,7 +22,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "catalog:",
     "@crawler/eslint-config": "workspace:*",
-    "@playwright/test": "^1.61.1",
+    "@playwright/test": "^1.62.1",
     "@tsconfig/node24": "^24.0.4",
     "@types/jsdom": "^28.0.3",
     "@types/node": "^24.13.3",
