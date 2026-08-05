@@ -21,6 +21,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "consola": "catalog:",
     "ofetch": "catalog:"
   },
   "devDependencies": {

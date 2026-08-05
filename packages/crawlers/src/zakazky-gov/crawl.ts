@@ -64,6 +64,7 @@ export async function runZakazkyGovCrawl(store: CrawlStore): Promise<CrawlResult
       tendersFound,
       pagesFetched,
       durationMs,
+      avgPerPageMs: pagesFetched > 0 ? Math.round(durationMs / pagesFetched) : 0,
     })
 
     return {

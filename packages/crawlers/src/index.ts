@@ -21,7 +21,13 @@ export {
   type TenderRawData,
 } from './utils'
 
-export { createCrawlLogger, type CrawlLogger } from './logger'
+export {
+  createCrawlLogger,
+  formatDuration,
+  type CreateCrawlLoggerOptions,
+  type CrawlLogger,
+  type LogMeta,
+} from './logger'
 
 export { DEFAULT_CONFIG, SOURCE_SLUG, detailUrl, documentUrl, resolveConfig } from './zakazky-gov/config'
 

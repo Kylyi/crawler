@@ -6,16 +6,19 @@
   "scripts": {
     "ready": "vp check && vp run -r test && vp run -r build",
     "dev": "vp run fe-vue#dev",
-    "dev:nuxt4": "vp run fe-nuxt4#dev",
-    "dev:nuxt5": "vp run fe-nuxt5#dev",
-    "lint": "vp run -r lint",
+    "build": "vp run -r build",
+    "typecheck": "vp run -r typecheck",
+    "scripts": "tsx scripts/main.ts",
     "prepare": "vp config"
   },
   "dependencies": {
     "typescript": "catalog:"
   },
   "devDependencies": {
+    "@clack/prompts": "^0.11.0",
     "@crawler/eslint-config": "workspace:*",
+    "picocolors": "^1.1.1",
+    "tsx": "^4.20.5",
     "vite": "catalog:",
     "vite-plus": "catalog:"
   },

@@ -117,6 +117,7 @@ export async function runZakazkyGovDetailCrawl(
       failed,
       queued: queue.length,
       durationMs,
+      avgPerTenderMs: processed > 0 ? Math.round(durationMs / processed) : 0,
     })
 
     return {

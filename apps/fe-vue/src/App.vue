@@ -5,7 +5,8 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <div class="app">
     <nav class="nav">
-      <RouterLink to="/">Tenders</RouterLink>
+      hm?
+      <RouterLink to="/"> Tenders </RouterLink>
     </nav>
     <RouterView />
   </div>

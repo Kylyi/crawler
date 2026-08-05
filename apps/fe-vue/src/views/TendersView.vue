@@ -43,6 +43,7 @@ const { data, isLoading, error } = useQuery({
     if (search.value) {
       params.set('q', search.value)
     }
+
     return $fetch<TenderListResponse>(`/api/tenders?${params}`)
   },
 })
@@ -61,6 +62,7 @@ function formatDate(value: string | null): string {
   if (!value) {
     return '—'
   }
+
   return new Date(value).toLocaleDateString('cs-CZ', {
     day: 'numeric',
     month: 'short',
@@ -86,16 +88,7 @@ function formatDate(value: string | null): string {
         <button type="button" :class="{ active: category === 'Construction' }" @click="toggleCategory('Construction')">
           Construction
         </button>
-        <button
-          type="button"
-          :class="{ active: !category }"
-          @click="
-            category = null
-            page = 1
-          "
-        >
-          All
-        </button>
+        <button type="button" :class="{ active: !category }" @click="((category = null), (page = 1))">All</button>
       </div>
     </div>
 

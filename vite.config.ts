@@ -8,6 +8,10 @@ export default defineConfig({
   fmt: eslintAlignedFmt,
   lint: eslintAlignedLint,
   run: {
-    cache: true,
+    // Script caching captures stdio and breaks interactive Clack prompts (e.g. `vp run scripts`).
+    cache: {
+      scripts: false,
+      tasks: true,
+    },
   },
 })

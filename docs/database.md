@@ -46,7 +46,7 @@ Migrations (apply in order):
 
 Migrations live in [`apps/fe-vue/server/db/migrations/`](../apps/fe-vue/server/db/migrations/) (`migrations_dir` in `wrangler.jsonc`).
 
-When adding schema changes, create a new numbered SQL file (e.g. `003_add_foo.sql`) and run `pnpm db:apply:local`.
+When adding schema changes, create a new numbered SQL file (e.g. `003_add_foo.sql`) and run `pnpm scripts -- fe-vue/db:apply --target=local`.
 
 ### Table groups
 
@@ -70,16 +70,16 @@ From `apps/fe-vue`:
 
 ```bash
 # Apply pending migrations to local D1 (Wrangler emulation)
-pnpm db:apply:local
+pnpm scripts -- fe-vue/db:apply --target=local
 
 # Apply pending migrations to remote D1 (production)
-pnpm db:apply:remote
+pnpm scripts -- fe-vue/db:apply --target=remote
 
 # List migration status
-pnpm db:migrations:list
+pnpm scripts -- fe-vue/db:migrations:list
 ```
 
-Re-running `db:apply:*` is safe — Wrangler records applied migrations and only runs new files.
+Re-running `db:apply` is safe — Wrangler records applied migrations and only runs new files.
 
 ### Local dev database (`vp dev`)
 
@@ -98,7 +98,7 @@ If local schema state is inconsistent (e.g. from earlier manual `d1 execute --fi
 
 ```bash
 rm -rf .wrangler/state/v3/d1
-pnpm db:apply:local
+pnpm scripts -- fe-vue/db:apply --target=local
 ```
 
 ## Usage in code

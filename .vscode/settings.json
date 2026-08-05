@@ -27,5 +27,31 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.oxc": "explicit",
     "source.fixAll.eslint": "explicit"
-  }
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/tsconfig.json": true,
+    "**/.gitignore": true,
+    "**/.gitmodules": true,
+    "**/.npmrc": true,
+    "**/.nuxt": true,
+    "**/pnpm*": true,
+    "**/.pnpm*": true,
+    "**/eslint.config.mjs": true,
+    "**/.cache": true,
+    "**/.agents": true,
+    "**/.cursor": true,
+    "**/.github": true
+  },
+  "folderTemplates.templateFolderPath": "_templates",
+  "js/ts.preferences.importModuleSpecifier": "project-relative",
+  "javascript.preferences.importModuleSpecifier": "project-relative",
+  "typescript.preferences.importModuleSpecifier": "project-relative",
+  "i18n-ally.keystyle": "nested"
 }

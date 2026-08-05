@@ -68,7 +68,7 @@ jobs:
         run: pnpm --filter fe-vue exec playwright install-deps chromium firefox
 
       - name: Run unit tests
-        run: pnpm --filter fe-vue run test:unit
+        run: pnpm --filter fe-vue run test
         env:
           CI: true
 
@@ -82,10 +82,10 @@ jobs:
           retention-days: 14
 
       - name: Build for e2e
-        run: pnpm --filter fe-vue run build-only
+        run: pnpm --filter fe-vue run build
 
       - name: Run e2e tests
-        run: pnpm --filter fe-vue run test:e2e
+        run: pnpm exec tsx scripts/main.ts fe-vue/test:e2e
         env:
           CI: true
 
@@ -129,7 +129,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build for Cloudflare
-        run: pnpm --filter fe-vue run build:cloudflare
+        run: pnpm exec tsx scripts/main.ts fe-vue/build:cloudflare
 
       - name: Deploy to Cloudflare Workers
-        run: pnpm --filter fe-vue run deploy:cloudflare
+        run: pnpm exec tsx scripts/main.ts fe-vue/deploy:cloudflare
