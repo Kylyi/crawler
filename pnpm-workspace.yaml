@@ -46,6 +46,7 @@ peerDependencyRules:
     vite: '*'
     vue: '*'
 allowBuilds:
+  '@parcel/watcher': set this to true or false
   esbuild: true
   unrs-resolver: true
   workerd: true
