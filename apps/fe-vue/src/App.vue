@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <div class="app">
     <nav class="nav">
-      hm?
+      <div>Idk bro</div>
       <RouterLink to="/"> Tenders </RouterLink>
     </nav>
     <RouterView />
