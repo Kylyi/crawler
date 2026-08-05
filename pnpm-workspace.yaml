@@ -49,3 +49,23 @@ allowBuilds:
   esbuild: true
   unrs-resolver: true
   workerd: true
+# Nightly/RC Vue + Nuxt (and their immediate toolchain deps) publish too often
+# for the default 24h minimumReleaseAge gate.
+minimumReleaseAgeExclude:
+  - '*vue*'
+  - '@vue/*'
+  - 'vue'
+  - '*nuxt*'
+  - '@nuxt/*'
+  - 'nuxt'
+  - '@unhead/*'
+  - 'unhead'
+  - 'verkit'
+  - 'seroval'
+  - '@vitejs/devtools'
+  - '@vitejs/devtools-kit'
+  # Current lockfile also pins these under the age gate (eslint config / nitro).
+  - 'eslint-plugin-jsonc'
+  - 'eslint-plugin-perfectionist'
+  - 'eslint-plugin-yml'
+  - 'terser'
