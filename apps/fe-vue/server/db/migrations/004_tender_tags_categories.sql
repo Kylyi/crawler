@@ -1,5 +1,3 @@
--- Portal category tags (e.g. ItSluzby) and normalized sectors (e.g. IT)
-ALTER TABLE tenders ADD COLUMN tags TEXT;
-ALTER TABLE tenders ADD COLUMN categories TEXT;
-
-CREATE INDEX IF NOT EXISTS idx_tenders_categories ON tenders(categories);
+-- Folded into 001_initial.sql (tags, categories + index).
+-- Kept as a no-op so environments that already recorded this migration stay valid.
+SELECT 1;

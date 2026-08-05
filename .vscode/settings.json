@@ -36,7 +36,7 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/node_modules": true,
-    "**/tsconfig.json": true,
+    "**/tsconfig*.json": true,
     "**/.gitignore": true,
     "**/.gitmodules": true,
     "**/.npmrc": true,
@@ -47,7 +47,9 @@
     "**/.cache": true,
     "**/.agents": true,
     "**/.cursor": true,
-    "**/.github": true
+    "**/.github": true,
+    "**/.output": true,
+    "**/.wrangler": true
   },
   "folderTemplates.templateFolderPath": "_templates",
   "js/ts.preferences.importModuleSpecifier": "project-relative",

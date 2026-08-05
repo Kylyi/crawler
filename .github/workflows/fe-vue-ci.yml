@@ -81,8 +81,11 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
-      - name: Build for e2e
-        run: pnpm --filter fe-vue run build
+      - name: Build for e2e (Cloudflare)
+        run: pnpm exec tsx scripts/main.ts fe-vue/build:cloudflare
+
+      - name: Apply local D1 migrations
+        run: pnpm exec tsx scripts/main.ts fe-vue/db:apply --target=local
 
       - name: Run e2e tests
         run: pnpm exec tsx scripts/main.ts fe-vue/test:e2e

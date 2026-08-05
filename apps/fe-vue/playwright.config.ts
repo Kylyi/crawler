@@ -15,8 +15,24 @@ import { defineConfig, devices } from '@playwright/test'
 const isCI = !!process.env.CI
 const configDir = path.dirname(fileURLToPath(import.meta.url))
 const vpBin = path.join(configDir, 'node_modules', '.bin', 'vp')
+const wranglerBin = path.join(configDir, 'node_modules', '.bin', 'wrangler')
 const port = isCI ? 4173 : 5173
 const baseURL = `http://localhost:${port}`
+/** Cloudflare build + local D1 — `vp preview` has no Workers bindings. */
+const ciWebServer = [
+  wranglerBin,
+  'dev',
+  '--config',
+  '.output/server/wrangler.json',
+  '--persist-to',
+  '.wrangler/state',
+  '--port',
+  String(port),
+  '--ip',
+  '127.0.0.1',
+  '--show-interactive-dev-session',
+  'false',
+].join(' ')
 
 export default defineConfig({
   testDir: './e2e',
@@ -111,11 +127,11 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: {
     /**
-     * Use the dev server by default for faster feedback loop.
-     * Use the preview server on CI for more realistic testing.
-     * Playwright will re-use the local server if there is already a dev-server running.
+     * Local: Vite+ dev (Nitro `devDatabase` sqlite).
+     * CI: Wrangler + local D1 against the Cloudflare build (Workers bindings).
+     * Playwright will re-use an existing local server when not in CI.
      */
-    command: `${vpBin} ${isCI ? 'preview' : 'dev'} --port ${port} --strictPort`,
+    command: isCI ? ciWebServer : `${vpBin} dev --port ${port} --strictPort`,
     cwd: configDir,
     url: baseURL,
     reuseExistingServer: !isCI,
