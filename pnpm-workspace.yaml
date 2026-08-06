@@ -25,6 +25,9 @@ shellEmulator: true
 trustPolicy: no-downgrade
 trustPolicyExclude:
   - semver@6.3.1
+  # Abbreviated registry metadata omits `time`; trust checks then fail with
+  # "Missing time for version … of h3" (pulled by devframe / Nuxt toolchain).
+  - h3@2.0.1-rc.26
 
 packages:
   - apps/*
