@@ -1,4 +1,4 @@
-export default defineUtilitiesConfig({
+export default extendUtilitiesConfig({
   public: {
     env: 'kokos',
   },

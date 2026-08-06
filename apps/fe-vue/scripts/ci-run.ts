@@ -21,8 +21,8 @@ async function resolveGithubCli(): Promise<string> {
   }
 
   throw new Error(
-    'GitHub CLI not found at /opt/homebrew/bin/gh. Install with: brew install gh\n' +
-      'Note: plain `gh` may be shadowed by Vite+ (~/.vite-plus/bin/gh).',
+    'GitHub CLI not found at /opt/homebrew/bin/gh. Install with: brew install gh\n'
+    + 'Note: plain `gh` may be shadowed by Vite+ (~/.vite-plus/bin/gh).',
   )
 }
 
@@ -69,8 +69,8 @@ export default {
       const current = await currentRef(ctx.root)
 
       if (ctx.interactive) {
-        ref =
-          (await textOrCancel('Git ref (branch or SHA)', {
+        ref
+          = (await textOrCancel('Git ref (branch or SHA)', {
             defaultValue: current,
           })) ?? undefined
       } else {

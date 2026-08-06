@@ -30,10 +30,11 @@ function parseStringArray(value: string | null): string[] {
   if (!value) {
     return []
   }
+
   return parseJson<string[]>(value, [])
 }
 
-export default defineHandler(async (event) => {
+export default defineHandler(async event => {
   const db = useDatabase()
   const params = event.url.searchParams
 
@@ -68,7 +69,7 @@ export default defineHandler(async (event) => {
     LIMIT ${pageSize} OFFSET ${offset}
   `
 
-  const items: TenderListItem[] = (rows ?? []).map((row) => {
+  const items: TenderListItem[] = (rows ?? []).map(row => {
     const typed = row as {
       id: string
       source: string
@@ -84,6 +85,7 @@ export default defineHandler(async (event) => {
       url: string
       detail_fetched_at: string | null
     }
+
     return {
       id: typed.id,
       source: typed.source,

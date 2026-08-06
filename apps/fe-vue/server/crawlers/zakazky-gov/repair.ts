@@ -5,8 +5,9 @@ import {
   parseJson,
   resolveConfig,
   SOURCE_SLUG,
-  type ZakazkyGovDetailResponse,
+
 } from 'crawlers'
+import type { ZakazkyGovDetailResponse } from 'crawlers'
 import { enrichTender, getSourceBySlug, replaceTenderDocuments } from '../db'
 
 const log = createCrawlLogger('zakazky-gov:repair')
@@ -39,7 +40,7 @@ export async function repairEnrichedFieldsFromStoredDetail(): Promise<RepairResu
   let skipped = 0
 
   for (const row of candidates) {
-    const typed = row as { id: string; external_id: string; raw_data: string | null }
+    const typed = row as { id: string, external_id: string, raw_data: string | null }
     const raw = parseJson<{ detail?: ZakazkyGovDetailResponse }>(typed.raw_data, {})
     if (!raw.detail) {
       skipped++

@@ -1,16 +1,13 @@
 import { defineConfig } from 'vite-plus'
-import { eslintAlignedFmt, eslintAlignedLint } from '@crawler/eslint-config/oxlint'
 
 export default defineConfig({
   pack: {
-    dts: {
-      tsgo: true,
-    },
+    // Use the workspace `typescript` (TNB). `dts.tsgo` needs `@typescript/native-preview`.
+    dts: true,
     exports: true,
   },
-  fmt: eslintAlignedFmt,
-  lint: {
-    ...eslintAlignedLint,
-    plugins: ['eslint', 'typescript', 'unicorn', 'oxc'],
+  check: {
+    lint: false,
+    fmt: false,
   },
 })

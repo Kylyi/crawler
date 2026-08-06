@@ -24,7 +24,7 @@ export async function fetchListPage(config: ZakazkyGovConfig, page: number): Pro
     body,
     headers: {
       'Content-Type': 'application/json',
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'User-Agent': USER_AGENT,
     },
   })
@@ -32,7 +32,7 @@ export async function fetchListPage(config: ZakazkyGovConfig, page: number): Pro
 
 export async function fetchAllPages(
   config: ZakazkyGovConfig,
-  onPage?: (result: FetchPageResult, totals: { pages: number; items: number }) => void,
+  onPage?: (result: FetchPageResult, totals: { pages: number, items: number }) => void,
 ): Promise<FetchPageResult[]> {
   const pages: FetchPageResult[] = []
   let totalItems = 0
@@ -70,5 +70,6 @@ export function shouldContinuePagination(
   if (response.polozky.length === 0) {
     return false
   }
+
   return true
 }

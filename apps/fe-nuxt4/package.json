@@ -1,7 +1,7 @@
 {
   "name": "fe-nuxt4",
-  "private": true,
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@gentl/utilities": "workspace:*",
-    "nuxt": "^4.5.1",
-    "vue": "^3.5.40",
-    "vue-router": "^5.2.0"
+    "nuxt": "catalog:conflicts_nuxt_h4_5_1",
+    "vue": "catalog:conflicts_vue_h3_5_40",
+    "vue-router": "catalog:"
   },
   "devDependencies": {
     "@crawler/eslint-config": "workspace:*",

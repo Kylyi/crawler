@@ -1,31 +1,11 @@
 {
   "npm.scriptRunner": "vp",
-  "editor.defaultFormatter": "oxc.oxc-vscode",
-  "[javascript]": {
-    "editor.defaultFormatter": "oxc.oxc-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "oxc.oxc-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "oxc.oxc-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "oxc.oxc-vscode",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  },
-  "oxc.fmt.configPath": "./vite.config.ts",
+  "eslint.format.enable": true,
   "eslint.workingDirectories": [{ "pattern": "./apps/*" }, { "pattern": "./packages/*" }],
   "eslint.useFlatConfig": true,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "explicit",
     "source.fixAll.eslint": "explicit"
   },
   "files.exclude": {
@@ -36,12 +16,12 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/node_modules": true,
-    // "**/tsconfig*.json": true,
+    "**/tsconfig*.json": true,
     "**/.gitignore": true,
     "**/.gitmodules": true,
     "**/.npmrc": true,
-    // "**/.nuxt": true,
-    "**/pnpm*": true,
+    "**/.nuxt": true,
+    // "**/pnpm*": true,
     "**/.pnpm*": true,
     "**/eslint.config.mjs": true,
     "**/.cache": true,

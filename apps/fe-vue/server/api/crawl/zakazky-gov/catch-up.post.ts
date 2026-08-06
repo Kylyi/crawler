@@ -1,9 +1,10 @@
+import process from 'node:process'
 import { defineHandler } from 'nitro'
 import { runZakazkyGovDetailCrawl } from 'crawlers'
 import { nitroCrawlStore } from '../../../crawlers/db'
 import { repairEnrichedFieldsFromStoredDetail } from '../../../crawlers/zakazky-gov/repair'
 
-export default defineHandler(async (event) => {
+export default defineHandler(async event => {
   const apiKey = process.env.CRAWL_API_KEY
   if (apiKey) {
     const provided = event.req.headers.get('x-crawl-api-key')

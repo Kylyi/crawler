@@ -61,23 +61,15 @@ function setAliasPaths(
 }
 
 function generateUtilityConfigCode(configPaths: { path: string; isBase: boolean; cwd: string }[]) {
-  return `import { createDefu } from 'defu'
+  const customDefuPath = resolve(currentDir, 'core/config/custom-defu')
 
-export const customDefu = createDefu((obj, key, value) => {
-  // For arrays, use the value, don't extend
-  if (Array.isArray(obj[key])) {
-    obj[key] = value ?? obj[key]
+  return `import { customDefu } from '${customDefuPath}'
 
-    return true
-  }
-})
-
-
-  ${configPaths
-    .map(({ path }, idx) => {
-      return `import config${idx} from '${path}'`
-    })
-    .join('\n')}
+${configPaths
+  .map(({ path }, idx) => {
+    return `import config${idx} from '${path}'`
+  })
+  .join('\n')}
 
 export const utilsConfig = customDefu(${configPaths.map((_, idx) => `config${idx}`).join(', ')})
 

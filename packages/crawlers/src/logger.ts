@@ -100,16 +100,16 @@ function emit(logger: ConsolaInstance, type: 'start' | 'info' | 'log' | 'warn' |
 }
 
 export function createCrawlLogger(scope: string, options: CreateCrawlLoggerOptions = {}): CrawlLogger {
-  const base =
-    options.consola ??
-    createConsola({
-      level: resolveLevel(options.level),
-      formatOptions: {
-        colors: true,
-        compact: true,
-        date: true,
-      },
-    })
+  const base
+    = options.consola
+      ?? createConsola({
+        level: resolveLevel(options.level),
+        formatOptions: {
+          colors: true,
+          compact: true,
+          date: true,
+        },
+      })
 
   const logger = base.withTag(`crawl:${scope}`)
 

@@ -1,5 +1,6 @@
+import process from 'node:process'
 import { fileURLToPath } from 'node:url'
-import { mergeConfig, defineConfig, configDefaults } from 'vite-plus'
+import { configDefaults, defineConfig, mergeConfig } from 'vite-plus'
 import viteConfig from './vite.config'
 
 const isCI = !!process.env.CI

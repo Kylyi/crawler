@@ -25,6 +25,7 @@ export function documentUrl(portalBaseUrl: string, externalId: string, documentI
 
 export function resolveConfig(source: SourceRow | null): ZakazkyGovConfig {
   const fromDb = parseJson<Partial<ZakazkyGovConfig>>(source?.config, {})
+
   return { ...DEFAULT_CONFIG, ...fromDb }
 }
 

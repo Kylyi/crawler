@@ -41,6 +41,7 @@ export function parseRawData(value: unknown): TenderRawData {
 
 export function mergeRawData(existing: unknown, update: Partial<TenderRawData>): TenderRawData {
   const base = parseRawData(existing)
+
   return {
     list: update.list !== undefined ? update.list : base.list,
     detail: update.detail !== undefined ? update.detail : base.detail,
@@ -48,7 +49,7 @@ export function mergeRawData(existing: unknown, update: Partial<TenderRawData>):
 }
 
 export function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms))
+  return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 export function mapApiStatus(stav: string): string {

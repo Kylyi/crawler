@@ -15,6 +15,7 @@ export async function getSourceBySlug(slug: string): Promise<SourceRow | null> {
   const { rows } = await db.sql`
     SELECT id, slug, name, config FROM sources WHERE slug = ${slug} LIMIT 1
   `
+
   return (rows?.[0] as SourceRow | undefined) ?? null
 }
 
@@ -138,8 +139,9 @@ export async function getTendersNeedingDetail(source: string, limit: number): Pr
     LIMIT ${limit}
   `
 
-  return (rows ?? []).map((row) => {
-    const typed = row as { id: string; external_id: string }
+  return (rows ?? []).map(row => {
+    const typed = row as { id: string, external_id: string }
+
     return {
       id: typed.id,
       externalId: typed.external_id,
@@ -154,6 +156,7 @@ export async function getTenderByExternalId(source: string, externalId: string):
     WHERE source = ${source} AND external_id = ${externalId}
     LIMIT 1
   `
+
   return (rows?.[0] as { id: string } | undefined) ?? null
 }
 

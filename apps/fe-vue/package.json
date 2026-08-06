@@ -1,12 +1,18 @@
 {
   "name": "fe-vue",
+  "type": "module",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
+  "engines": {
+    "node": "^22.18.0 || >=24.12.0"
+  },
   "scripts": {
     "dev": "vp dev",
     "build": "vp build",
     "typecheck": "vue-tsc --build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "check": "eslint .",
     "test": "vp test"
   },
   "dependencies": {
@@ -16,30 +22,30 @@
     "crawlers": "workspace:*",
     "nitro": "catalog:",
     "ofetch": "catalog:",
-    "pinia": "^4.0.2",
-    "vue": "3.6.0-rc.1",
-    "vue-router": "^5.2.0"
+    "pinia": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "catalog:",
     "@crawler/eslint-config": "workspace:*",
-    "@playwright/test": "^1.62.1",
-    "@tsconfig/node24": "^24.0.4",
-    "@types/jsdom": "^28.0.3",
-    "@types/node": "^24.13.3",
-    "@vitejs/plugin-vue": "^6.0.8",
-    "@vue/test-utils": "^2.4.11",
-    "@vue/tsconfig": "^0.9.1",
+    "@playwright/test": "catalog:",
+    "@tsconfig/node24": "catalog:",
+    "@types/jsdom": "catalog:",
+    "@types/node": "catalog:conflicts_@types/node_h26_1_1",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vue/test-utils": "catalog:",
+    "@vue/tsconfig": "catalog:",
     "eslint": "catalog:",
-    "eslint-plugin-playwright": "^2.10.5",
-    "jsdom": "^29.1.1",
+    "eslint-plugin-playwright": "catalog:",
+    "jsdom": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
-    "vite-plugin-vue-devtools": "^8.1.5",
+    "vite-plugin-vue-devtools": "catalog:",
     "vite-plus": "catalog:",
-    "vue-eslint-parser": "^10.4.1",
-    "vue-tsc": "^3.3.7",
-    "wrangler": "^4.115.0"
+    "vue-eslint-parser": "catalog:",
+    "vue-tsc": "catalog:",
+    "wrangler": "catalog:"
   },
   "devEngines": {
     "packageManager": {
@@ -47,8 +53,5 @@
       "version": "11.18.0",
       "onFail": "download"
     }
-  },
-  "engines": {
-    "node": "^22.18.0 || >=24.12.0"
   }
 }

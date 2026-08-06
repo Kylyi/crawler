@@ -26,6 +26,7 @@ function inferMimeType(filename?: string): string | undefined {
   if (lower.endsWith('.doc')) {
     return 'application/msword'
   }
+
   return undefined
 }
 

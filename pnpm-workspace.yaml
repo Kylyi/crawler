@@ -1,43 +1,106 @@
+catalogMode: prefer
+
+# Nightly/RC Vue + Nuxt (and their immediate toolchain deps) publish too often
+# for the default 24h minimumReleaseAge gate.
+minimumReleaseAgeExclude:
+  - '*vue*'
+  - '@vue/*'
+  - vue
+  - '*nuxt*'
+  - '@nuxt/*'
+  - nuxt
+  - '@unhead/*'
+  - unhead
+  - verkit
+  - seroval
+  - '@vitejs/devtools'
+  - '@vitejs/devtools-kit'
+  # Current lockfile also pins these under the age gate (eslint config / nitro).
+  - eslint-plugin-jsonc
+  - eslint-plugin-perfectionist
+  - eslint-plugin-yml
+  - terser
+shellEmulator: true
+
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  - semver@6.3.1
+
 packages:
   - apps/*
   - packages/*
   - tools/*
 
-catalogMode: prefer
-
+overrides:
+  '@nuxt/nitro-server-nightly>@vue/shared': 3.6.0-rc.1
+  '@nuxt/nitro-server-nightly>vue': 3.6.0-rc.1
+  '@nuxt/vite-builder-nightly>@vue/compiler-sfc': 3.6.0-rc.1
+  '@nuxt/vite-builder-nightly>vue': 3.6.0-rc.1
+  nuxt-nightly>@vue/compiler-core: 3.6.0-rc.1
+  nuxt-nightly>@vue/compiler-dom: 3.6.0-rc.1
+  nuxt-nightly>@vue/compiler-sfc: 3.6.0-rc.1
+  nuxt-nightly>@vue/compiler-ssr: 3.6.0-rc.1
+  nuxt-nightly>@vue/compiler-vapor: 3.6.0-rc.1
+  nuxt-nightly>@vue/reactivity: 3.6.0-rc.1
+  nuxt-nightly>@vue/runtime-core: 3.6.0-rc.1
+  nuxt-nightly>@vue/runtime-dom: 3.6.0-rc.1
+  nuxt-nightly>@vue/runtime-vapor: 3.6.0-rc.1
+  nuxt-nightly>@vue/server-renderer: 3.6.0-rc.1
+  nuxt-nightly>@vue/shared: 3.6.0-rc.1
+  # fe-nuxt5 / Nuxt 5 nightly: force Vue 3.6 family through nested deps
+  nuxt-nightly>vue: 3.6.0-rc.1
+  typescript: npm:typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2
+  vite: 'catalog:'
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  unrs-resolver: true
+  workerd: true
 catalog:
+  '@antfu/eslint-config': 9.1.0
+  '@clack/prompts': ^0.11.0
   '@cloudflare/workers-types': ^5.20260731.1
+  '@nuxt/eslint-config': 1.16.0
   '@pinia/colada': ^1.4.2
+  '@playwright/test': ^1.62.1
+  '@tsconfig/node24': ^24.0.4
+  '@types/jsdom': ^28.0.3
   '@types/node': ^24
+  '@vitejs/plugin-vue': ^6.0.8
+  '@vue/test-utils': ^2.4.11
+  '@vue/tsconfig': ^0.9.1
   '@vueuse/core': ^14.4.0
+  bumpp: ^11.1.0
   consola: ^3.4.2
-  db0: ^0.3.4
   eslint: ^10.6.0
+  eslint-plugin-format: 2.0.1
+  eslint-plugin-playwright: ^2.10.5
+  jsdom: ^29.1.1
   nitro: 3.0.260610-beta
+  nuxt: npm:nuxt-nightly@5x
   ofetch: ^1.5.1
+  picocolors: ^1.1.1
+  pinia: ^4.0.2
+  tsx: ^4.20.5
   typescript: 7.0.2
   vite: npm:@voidzero-dev/vite-plus-core@0.2.6
+  vite-plugin-vue-devtools: ^8.1.5
   vite-plus: 0.2.6
-overrides:
-  vite: 'catalog:'
-  typescript: npm:typescript-native-bridge@6.0.3-bridge.7.tsgo.7.0.2
-  # fe-nuxt5 / Nuxt 5 nightly: force Vue 3.6 family through nested deps
-  'nuxt-nightly>vue': '3.6.0-rc.1'
-  '@nuxt/vite-builder-nightly>vue': '3.6.0-rc.1'
-  '@nuxt/nitro-server-nightly>vue': '3.6.0-rc.1'
-  'nuxt-nightly>@vue/compiler-core': '3.6.0-rc.1'
-  'nuxt-nightly>@vue/compiler-dom': '3.6.0-rc.1'
-  'nuxt-nightly>@vue/compiler-sfc': '3.6.0-rc.1'
-  'nuxt-nightly>@vue/compiler-ssr': '3.6.0-rc.1'
-  'nuxt-nightly>@vue/compiler-vapor': '3.6.0-rc.1'
-  'nuxt-nightly>@vue/reactivity': '3.6.0-rc.1'
-  'nuxt-nightly>@vue/runtime-core': '3.6.0-rc.1'
-  'nuxt-nightly>@vue/runtime-dom': '3.6.0-rc.1'
-  'nuxt-nightly>@vue/runtime-vapor': '3.6.0-rc.1'
-  'nuxt-nightly>@vue/server-renderer': '3.6.0-rc.1'
-  'nuxt-nightly>@vue/shared': '3.6.0-rc.1'
-  '@nuxt/vite-builder-nightly>@vue/compiler-sfc': '3.6.0-rc.1'
-  '@nuxt/nitro-server-nightly>@vue/shared': '3.6.0-rc.1'
+  vue: 3.6.0-rc.1
+  vue-eslint-parser: ^10.4.1
+  vue-router: ^5.2.0
+  vue-tsc: ^3.3.7
+  wrangler: ^4.115.0
+# Named catalogs for packages that must diverge across apps.
+# Default catalog = Nuxt 5 nightly / Vue 3.6 RC (fe-nuxt5, fe-vue).
+# conflicts_* = Nuxt 4 / Vue 3.5 (fe-nuxt4, Utilities).
+catalogs:
+  conflicts_@types/node_h26_1_1:
+    '@types/node': ^26.1.1
+  conflicts_nuxt_h4_5_1:
+    nuxt: ^4.5.1
+  conflicts_vue_h3_5_40:
+    vue: ^3.5.40
 peerDependencyRules:
   allowAny:
     - vite
@@ -45,28 +108,3 @@ peerDependencyRules:
   allowedVersions:
     vite: '*'
     vue: '*'
-allowBuilds:
-  '@parcel/watcher': true
-  esbuild: true
-  unrs-resolver: true
-  workerd: true
-# Nightly/RC Vue + Nuxt (and their immediate toolchain deps) publish too often
-# for the default 24h minimumReleaseAge gate.
-minimumReleaseAgeExclude:
-  - '*vue*'
-  - '@vue/*'
-  - 'vue'
-  - '*nuxt*'
-  - '@nuxt/*'
-  - 'nuxt'
-  - '@unhead/*'
-  - 'unhead'
-  - 'verkit'
-  - 'seroval'
-  - '@vitejs/devtools'
-  - '@vitejs/devtools-kit'
-  # Current lockfile also pins these under the age gate (eslint config / nitro).
-  - 'eslint-plugin-jsonc'
-  - 'eslint-plugin-perfectionist'
-  - 'eslint-plugin-yml'
-  - 'terser'

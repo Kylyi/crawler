@@ -15,8 +15,8 @@ export default {
     let target = flagString(flags, 'target')
 
     if (!target && ctx.interactive) {
-      target =
-        (await selectOrCancel('Target', [
+      target
+        = (await selectOrCancel('Target', [
           { label: 'Local', value: 'local' },
           { label: 'Remote', value: 'remote' },
         ])) ?? undefined

@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { createCrawlLogger } from 'crawlers'
 import { textOrCancel } from '../../../scripts/_lib/prompt.ts'
 import { flagString, parseFlags } from '../../../scripts/_lib/run.ts'
@@ -26,6 +27,7 @@ export async function resolveBaseUrl(ctx: ScriptContext): Promise<string> {
     if (!value) {
       throw new Error('Cancelled.')
     }
+
     return value.replace(/\/$/, '')
   }
 
@@ -40,6 +42,7 @@ export async function resolveLimit(ctx: ScriptContext, defaultLimit = 50): Promi
     if (!Number.isFinite(n) || n <= 0) {
       throw new Error(`Invalid --limit=${fromFlag}`)
     }
+
     return n
   }
 
@@ -52,6 +55,7 @@ export async function resolveLimit(ctx: ScriptContext, defaultLimit = 50): Promi
     if (!Number.isFinite(n) || n <= 0) {
       throw new Error(`Invalid limit: ${value}`)
     }
+
     return n
   }
 

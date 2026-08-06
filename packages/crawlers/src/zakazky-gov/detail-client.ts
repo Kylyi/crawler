@@ -15,7 +15,7 @@ export async function fetchDetail(rvzId: string, config: ZakazkyGovConfig): Prom
       return await ofetch<ZakazkyGovDetailResponse>(url, {
         method: 'GET',
         headers: {
-          Accept: 'application/json',
+          'Accept': 'application/json',
           'User-Agent': USER_AGENT,
         },
       })

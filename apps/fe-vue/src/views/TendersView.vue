@@ -75,27 +75,70 @@ function formatDate(value: string | null): string {
   <div class="page">
     <header class="header">
       <h1>Tenders</h1>
-      <p v-if="data" class="meta">{{ data.total }} active from Zakázky GOV</p>
+      <p
+        v-if="data"
+        class="meta"
+      >
+        {{ data.total }} active from Zakázky GOV
+      </p>
     </header>
 
     <div class="toolbar">
-      <form class="search" @submit.prevent="applySearch">
-        <input v-model="searchInput" type="search" placeholder="Search title or authority…" />
-        <button type="submit">Search</button>
+      <form
+        class="search"
+        @submit.prevent="applySearch"
+      >
+        <input
+          v-model="searchInput"
+          type="search"
+          placeholder="Search title or authority…"
+        >
+        <button type="submit">
+          Search
+        </button>
       </form>
       <div class="filters">
-        <button type="button" :class="{ active: category === 'IT' }" @click="toggleCategory('IT')">IT</button>
-        <button type="button" :class="{ active: category === 'Construction' }" @click="toggleCategory('Construction')">
+        <button
+          type="button"
+          :class="{ active: category === 'IT' }"
+          @click="toggleCategory('IT')"
+        >
+          IT
+        </button>
+        <button
+          type="button"
+          :class="{ active: category === 'Construction' }"
+          @click="toggleCategory('Construction')"
+        >
           Construction
         </button>
-        <button type="button" :class="{ active: !category }" @click="((category = null), (page = 1))">All</button>
+        <button
+          type="button"
+          :class="{ active: !category }"
+          @click="((category = null), (page = 1))"
+        >
+          All
+        </button>
       </div>
     </div>
 
-    <p v-if="isLoading" class="status">Loading…</p>
-    <p v-else-if="error" class="status error">Failed to load tenders.</p>
+    <p
+      v-if="isLoading"
+      class="status"
+    >
+      Loading…
+    </p>
+    <p
+      v-else-if="error"
+      class="status error"
+    >
+      Failed to load tenders.
+    </p>
 
-    <table v-else-if="data?.items.length" class="table">
+    <table
+      v-else-if="data?.items.length"
+      class="table"
+    >
       <thead>
         <tr>
           <th>Title</th>
@@ -106,31 +149,68 @@ function formatDate(value: string | null): string {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="tender in data.items" :key="tender.id">
+        <tr
+          v-for="tender in data.items"
+          :key="tender.id"
+        >
           <td class="title">
-            <a :href="tender.url" target="_blank" rel="noopener">{{ tender.title }}</a>
+            <a
+              :href="tender.url"
+              target="_blank"
+              rel="noopener"
+            >{{ tender.title }}</a>
             <span class="id">{{ tender.externalId }}</span>
           </td>
           <td>{{ tender.contractingAuthority ?? '—' }}</td>
           <td>{{ formatDate(tender.deadlineAt) }}</td>
           <td>
-            <span v-for="cat in tender.categories" :key="cat" class="badge">{{ cat }}</span>
-            <span v-if="!tender.categories.length" class="muted">—</span>
+            <span
+              v-for="cat in tender.categories"
+              :key="cat"
+              class="badge"
+            >{{ cat }}</span>
+            <span
+              v-if="!tender.categories.length"
+              class="muted"
+            >—</span>
           </td>
           <td class="cpv">
             <span v-if="tender.cpvCodes.length">{{ tender.cpvCodes[0] }}</span>
-            <span v-else class="muted">—</span>
+            <span
+              v-else
+              class="muted"
+            >—</span>
           </td>
         </tr>
       </tbody>
     </table>
 
-    <p v-else class="status">No tenders match your filters.</p>
+    <p
+      v-else
+      class="status"
+    >
+      No tenders match your filters.
+    </p>
 
-    <nav v-if="data && data.totalPages > 1" class="pagination">
-      <button type="button" :disabled="page <= 1" @click="page--">Previous</button>
+    <nav
+      v-if="data && data.totalPages > 1"
+      class="pagination"
+    >
+      <button
+        type="button"
+        :disabled="page <= 1"
+        @click="page--"
+      >
+        Previous
+      </button>
       <span>Page {{ data.page }} / {{ data.totalPages }}</span>
-      <button type="button" :disabled="page >= data.totalPages" @click="page++">Next</button>
+      <button
+        type="button"
+        :disabled="page >= data.totalPages"
+        @click="page++"
+      >
+        Next
+      </button>
     </nav>
   </div>
 </template>

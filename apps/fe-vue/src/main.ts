@@ -6,7 +6,6 @@ import { createUtilities } from '@gentl/utilities/vue'
 import App from './App.vue'
 import router from './router'
 
-// oxlint-disable-next-line typescript/no-explicit-any
 const app = createVaporApp(App as unknown as any)
 
 // RouterLink/RouterView are still VDOM; interop is required under createVaporApp.
@@ -20,7 +19,7 @@ app.use(
       useUtc: false,
       transliterate: true,
     },
-    translate: (key) => key,
+    translate: key => key,
   }) as any,
 )
 

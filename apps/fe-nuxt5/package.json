@@ -1,7 +1,7 @@
 {
   "name": "fe-nuxt5",
-  "private": true,
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -12,9 +12,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "nuxt": "npm:nuxt-nightly@5x",
-    "vue": "3.6.0-rc.1",
-    "vue-router": "^5.2.0"
+    "nuxt": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:"
   },
   "devDependencies": {
     "@crawler/eslint-config": "workspace:*",

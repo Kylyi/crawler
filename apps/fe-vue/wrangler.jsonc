@@ -7,7 +7,7 @@
       "binding": "DB",
       "database_name": "fe-vue-db",
       "database_id": "1d6aed09-986f-4fc2-8998-8ae7c80f5504",
-      "migrations_dir": "server/db/migrations",
-    },
-  ],
+      "migrations_dir": "server/db/migrations"
+    }
+  ]
 }

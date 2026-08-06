@@ -33,7 +33,9 @@ const sampleFiltered = computed(() =>
   <div class="app">
     <nav class="nav">
       <div>Idk bro</div>
-      <RouterLink to="/"> Tenders </RouterLink>
+      <RouterLink to="/">
+        Tenders
+      </RouterLink>
       <span class="utils-demo">utils: {{ sampleFormatted }} / {{ sampleFiltered }}</span>
     </nav>
     <RouterView />

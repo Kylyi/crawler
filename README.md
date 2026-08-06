@@ -19,11 +19,18 @@ vp run -r test
 - Build the monorepo:
 
 ```bash
-vp run -r build
+vp run scripts -- build
+```
+
+- Lint the monorepo:
+
+```bash
+vp run scripts -- lint
+vp run scripts -- lint --fix
 ```
 
 - Run the development server:
 
 ```bash
-vp run dev
+vp run scripts -- dev
 ```

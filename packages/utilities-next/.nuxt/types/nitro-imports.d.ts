@@ -8,8 +8,8 @@ declare global {
   const appendResponseHeader: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').appendResponseHeader
   const appendResponseHeaders: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').appendResponseHeaders
   const assertMethod: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').assertMethod
-  const cachedEventHandler: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/cache').cachedEventHandler
-  const cachedFunction: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/cache').cachedFunction
+  const cachedEventHandler: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/cache').cachedEventHandler
+  const cachedFunction: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/cache').cachedFunction
   const callNodeListener: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').callNodeListener
   const clearResponseHeaders: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').clearResponseHeaders
   const clearSession: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').clearSession
@@ -20,22 +20,22 @@ declare global {
   const createEventStream: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').createEventStream
   const createRouter: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').createRouter
   const defaultContentType: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').defaultContentType
-  const defineCachedEventHandler: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/cache').defineCachedEventHandler
-  const defineCachedFunction: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/cache').defineCachedFunction
+  const defineCachedEventHandler: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/cache').defineCachedEventHandler
+  const defineCachedFunction: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/cache').defineCachedFunction
   const defineEventHandler: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').defineEventHandler
   const defineI18nConfig: typeof import('../../../../node_modules/.pnpm/@nuxtjs+i18n@10.4.1_778b2068c5c11ed90b1dfbc9eca5e0c3/node_modules/@nuxtjs/i18n/dist/runtime/composables/shared').defineI18nConfig
   const defineI18nLocale: typeof import('../../../../node_modules/.pnpm/@nuxtjs+i18n@10.4.1_778b2068c5c11ed90b1dfbc9eca5e0c3/node_modules/@nuxtjs/i18n/dist/runtime/composables/shared').defineI18nLocale
   const defineI18nLocaleDetector: typeof import('../../../../node_modules/.pnpm/@nuxtjs+i18n@10.4.1_778b2068c5c11ed90b1dfbc9eca5e0c3/node_modules/@nuxtjs/i18n/dist/runtime/composables/server').defineI18nLocaleDetector
   const defineLazyEventHandler: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').defineLazyEventHandler
-  const defineNitroErrorHandler: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/error/utils').defineNitroErrorHandler
-  const defineNitroPlugin: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/plugin').defineNitroPlugin
+  const defineNitroErrorHandler: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/error/utils').defineNitroErrorHandler
+  const defineNitroPlugin: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/plugin').defineNitroPlugin
   const defineNodeListener: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').defineNodeListener
   const defineNodeMiddleware: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').defineNodeMiddleware
-  const defineRenderHandler: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/renderer').defineRenderHandler
+  const defineRenderHandler: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/renderer').defineRenderHandler
   const defineRequestMiddleware: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').defineRequestMiddleware
   const defineResponseMiddleware: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').defineResponseMiddleware
-  const defineRouteMeta: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/meta').defineRouteMeta
-  const defineTask: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/task').defineTask
+  const defineRouteMeta: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/meta').defineRouteMeta
+  const defineTask: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/task').defineTask
   const defineWebSocket: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').defineWebSocket
   const defineWebSocketHandler: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').defineWebSocketHandler
   const deleteCookie: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').deleteCookie
@@ -73,7 +73,7 @@ declare global {
   const getResponseHeaders: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').getResponseHeaders
   const getResponseStatus: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').getResponseStatus
   const getResponseStatusText: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').getResponseStatusText
-  const getRouteRules: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/route-rules').getRouteRules
+  const getRouteRules: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/route-rules').getRouteRules
   const getRouterParam: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').getRouterParam
   const getRouterParams: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').getRouterParams
   const getSession: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').getSession
@@ -94,7 +94,7 @@ declare global {
   const isStream: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').isStream
   const isWebResponse: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').isWebResponse
   const lazyEventHandler: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').lazyEventHandler
-  const nitroPlugin: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/plugin').nitroPlugin
+  const nitroPlugin: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/plugin').nitroPlugin
   const omit: typeof import('../../../../node_modules/.pnpm/lodash-es@4.18.1/node_modules/lodash-es/lodash').omit
   const parseCookies: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').parseCookies
   const parseValue: typeof import('../../core/utils/parse-value').parseValue
@@ -107,7 +107,7 @@ declare global {
   const readRawBody: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').readRawBody
   const readValidatedBody: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').readValidatedBody
   const removeResponseHeader: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').removeResponseHeader
-  const runTask: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/task').runTask
+  const runTask: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/task').runTask
   const sanitizeStatusCode: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').sanitizeStatusCode
   const sanitizeStatusMessage: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').sanitizeStatusMessage
   const sealSession: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').sealSession
@@ -144,11 +144,11 @@ declare global {
   const updateSession: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').updateSession
   const useAppConfig: typeof import('../../../../node_modules/.pnpm/@nuxt+nitro-server@4.5.1_569fe4164e1485322d655e44f28d0431/node_modules/@nuxt/nitro-server/dist/runtime/utils/app-config').useAppConfig
   const useBase: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').useBase
-  const useEvent: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/context').useEvent
-  const useNitroApp: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/app').useNitroApp
-  const useRuntimeConfig: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/config').useRuntimeConfig
+  const useEvent: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/context').useEvent
+  const useNitroApp: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/app').useNitroApp
+  const useRuntimeConfig: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/config').useRuntimeConfig
   const useSession: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').useSession
-  const useStorage: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+watcher@2.6.0_@voidzero-dev+vite-plus-core@0.2.6_@types+node@2_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/storage').useStorage
+  const useStorage: typeof import('../../../../node_modules/.pnpm/nitropack@2.13.4_@parcel+wa_0206e023719fd8e0044049de9310db58/node_modules/nitropack/dist/runtime/internal/storage').useStorage
   const useTranslation: typeof import('../../../../node_modules/.pnpm/@intlify+h3@0.7.4/node_modules/@intlify/h3').useTranslation
   const writeEarlyHints: typeof import('../../../../node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index').writeEarlyHints
   const z: typeof import('../../../../node_modules/.pnpm/zod@4.4.3/node_modules/zod').z
@@ -178,14 +178,14 @@ export { defineTask, runTask } from 'nitropack/runtime/internal/task';
 export { defineNitroErrorHandler } from 'nitropack/runtime/internal/error/utils';
 export { appendCorsHeaders, appendCorsPreflightHeaders, appendHeader, appendHeaders, appendResponseHeader, appendResponseHeaders, assertMethod, callNodeListener, clearResponseHeaders, clearSession, createApp, createAppEventHandler, createError, createEvent, createEventStream, createRouter, defaultContentType, defineEventHandler, defineLazyEventHandler, defineNodeListener, defineNodeMiddleware, defineRequestMiddleware, defineResponseMiddleware, defineWebSocket, defineWebSocketHandler, deleteCookie, dynamicEventHandler, eventHandler, fetchWithEvent, fromNodeMiddleware, fromPlainHandler, fromWebHandler, getCookie, getHeader, getHeaders, getMethod, getProxyRequestHeaders, getQuery, getRequestFingerprint, getRequestHeader, getRequestHeaders, getRequestHost, getRequestIP, getRequestPath, getRequestProtocol, getRequestURL, getRequestWebStream, getResponseHeader, getResponseHeaders, getResponseStatus, getResponseStatusText, getRouterParam, getRouterParams, getSession, getValidatedQuery, getValidatedRouterParams, handleCacheHeaders, handleCors, isCorsOriginAllowed, isError, isEvent, isEventHandler, isMethod, isPreflightRequest, isStream, isWebResponse, lazyEventHandler, parseCookies, promisifyNodeListener, proxyRequest, readBody, readFormData, readMultipartFormData, readRawBody, readValidatedBody, removeResponseHeader, sanitizeStatusCode, sanitizeStatusMessage, sealSession, send, sendError, sendIterable, sendNoContent, sendProxy, sendRedirect, sendStream, sendWebResponse, serveStatic, setCookie, setHeader, setHeaders, setResponseHeader, setResponseHeaders, setResponseStatus, splitCookiesString, toEventHandler, toNodeListener, toPlainHandler, toWebHandler, toWebRequest, unsealSession, updateSession, useBase, useSession, writeEarlyHints } from 'h3';
 export { z } from 'zod';
-export { $date } from '/Users/jk/Projects/crawler/packages/utilities-next/core/utils/$date';
-export { tMarker, $t } from '/Users/jk/Projects/crawler/packages/utilities-next/core/utils/t-marker';
-export { generateUUID } from '/Users/jk/Projects/crawler/packages/utilities-next/core/utils/generate-uuid';
-export { isDev } from '/Users/jk/Projects/crawler/packages/utilities-next/core/utils/is-dev';
-export { parseValue } from '/Users/jk/Projects/crawler/packages/utilities-next/core/utils/parse-value';
+export { $date } from 'C:/Users/jakub/Projects/crawler/packages/Utilities-next/core/utils/$date';
+export { tMarker, $t } from 'C:/Users/jakub/Projects/crawler/packages/Utilities-next/core/utils/t-marker';
+export { generateUUID } from 'C:/Users/jakub/Projects/crawler/packages/Utilities-next/core/utils/generate-uuid';
+export { isDev } from 'C:/Users/jakub/Projects/crawler/packages/Utilities-next/core/utils/is-dev';
+export { parseValue } from 'C:/Users/jakub/Projects/crawler/packages/Utilities-next/core/utils/parse-value';
 export { get, set, isNil, pick, omit, isEmpty, isEqual } from 'lodash-es';
-export { useAppConfig } from '/Users/jk/Projects/crawler/node_modules/.pnpm/@nuxt+nitro-server@4.5.1_569fe4164e1485322d655e44f28d0431/node_modules/@nuxt/nitro-server/dist/runtime/utils/app-config';
-export { defineI18nLocale, defineI18nConfig } from '/Users/jk/Projects/crawler/node_modules/.pnpm/@nuxtjs+i18n@10.4.1_778b2068c5c11ed90b1dfbc9eca5e0c3/node_modules/@nuxtjs/i18n/dist/runtime/composables/shared';
-export { defineI18nLocaleDetector } from '/Users/jk/Projects/crawler/node_modules/.pnpm/@nuxtjs+i18n@10.4.1_778b2068c5c11ed90b1dfbc9eca5e0c3/node_modules/@nuxtjs/i18n/dist/runtime/composables/server';
+export { useAppConfig } from 'C:/Users/jakub/Projects/crawler/node_modules/.pnpm/@nuxt+nitro-server@4.5.1_569fe4164e1485322d655e44f28d0431/node_modules/@nuxt/nitro-server/dist/runtime/utils/app-config';
+export { defineI18nLocale, defineI18nConfig } from 'C:/Users/jakub/Projects/crawler/node_modules/.pnpm/@nuxtjs+i18n@10.4.1_778b2068c5c11ed90b1dfbc9eca5e0c3/node_modules/@nuxtjs/i18n/dist/runtime/composables/shared';
+export { defineI18nLocaleDetector } from 'C:/Users/jakub/Projects/crawler/node_modules/.pnpm/@nuxtjs+i18n@10.4.1_778b2068c5c11ed90b1dfbc9eca5e0c3/node_modules/@nuxtjs/i18n/dist/runtime/composables/server';
 export { useTranslation } from '@intlify/h3';
 export { getCookieLocale, getHeaderLanguage, getHeaderLanguages, getHeaderLocale, getHeaderLocales, getPathLocale, getQueryLocale, setCookieLocale, tryCookieLocale, tryHeaderLocale, tryHeaderLocales, tryPathLocale, tryQueryLocale } from '@intlify/utils/h3';

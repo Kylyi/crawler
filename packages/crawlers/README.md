@@ -6,7 +6,8 @@ Persistence goes through the `CrawlStore` port — apps inject their own adapter
 (e.g. Nitro D1 in `fe-vue`).
 
 ```ts
-import { runZakazkyGovCrawl, type CrawlStore } from 'crawlers'
+import { runZakazkyGovCrawl } from 'crawlers'
+import type { CrawlStore } from 'crawlers'
 
 await runZakazkyGovCrawl(store)
 ```

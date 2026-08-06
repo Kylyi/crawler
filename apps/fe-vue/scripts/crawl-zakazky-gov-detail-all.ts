@@ -1,5 +1,7 @@
+import type { Buffer } from 'node:buffer'
 import { spawn } from 'node:child_process'
 import { join } from 'node:path'
+import process from 'node:process'
 import * as p from '@clack/prompts'
 import type { Script } from '../../../scripts/_lib/types.ts'
 import { textOrCancel } from '../../../scripts/_lib/prompt.ts'
@@ -18,9 +20,10 @@ function sqliteScalar(dbPath: string, sql: string): Promise<string> {
       stderr += chunk.toString()
     })
     child.on('error', reject)
-    child.on('close', (code) => {
+    child.on('close', code => {
       if (code === 0) {
         resolve(stdout.trim())
+
         return
       }
       reject(new Error(stderr || `sqlite3 exited with code ${code ?? 'unknown'}`))
@@ -33,7 +36,7 @@ function sqliteExec(dbPath: string, sql: string): Promise<string> {
 }
 
 async function resolveNumber(
-  ctx: { interactive: boolean; argv: string[] },
+  ctx: { interactive: boolean, argv: string[] },
   flag: string,
   message: string,
   defaultValue: number,
@@ -46,6 +49,7 @@ async function resolveNumber(
     if (!Number.isFinite(n) || n < 0) {
       throw new Error(`Invalid --${flag}=${fromFlag}`)
     }
+
     return n
   }
 
@@ -66,6 +70,7 @@ async function resolveNumber(
     if (!Number.isFinite(n) || n < 0) {
       throw new Error(`Invalid value: ${value}`)
     }
+
     return n
   }
 
@@ -104,8 +109,8 @@ export default {
 
       p.log.step(`--- Round ${round}: ${left} remaining ---`)
       const body = await postCrawl(`${base}/api/crawl/zakazky-gov/detail?limit=${batch}`)
-      const processed =
-        body && typeof body === 'object' && 'tendersFound' in body
+      const processed
+        = body && typeof body === 'object' && 'tendersFound' in body
           ? Number((body as { tendersFound: unknown }).tendersFound)
           : NaN
 

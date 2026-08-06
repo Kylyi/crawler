@@ -25,5 +25,5 @@ export function mapListItemToTender(item: ZakazkyGovListItem, portalBaseUrl: str
 }
 
 export function mapListResponseToTenders(items: ZakazkyGovListItem[], portalBaseUrl: string): NormalizedTender[] {
-  return items.map((item) => mapListItemToTender(item, portalBaseUrl))
+  return items.map(item => mapListItemToTender(item, portalBaseUrl))
 }

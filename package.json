@@ -1,24 +1,25 @@
 {
   "name": "crawler",
+  "type": "module",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
+  "packageManager": "pnpm@11.18.0",
+  "engines": {
+    "node": ">=22.18.0"
+  },
   "scripts": {
-    "ready": "vp check && vp run -r test && vp run -r build",
-    "dev": "vp run fe-vue#dev",
-    "build": "vp run -r build",
-    "typecheck": "vp run -r typecheck",
-    "scripts": "tsx scripts/main.ts",
-    "prepare": "vp config"
+    "ready": "tsx scripts/main.ts -- lint && tsx scripts/main.ts -- typecheck && vp run -r test && tsx scripts/main.ts -- build",
+    "scripts": "tsx scripts/main.ts"
   },
   "dependencies": {
     "typescript": "catalog:"
   },
   "devDependencies": {
-    "@clack/prompts": "^0.11.0",
+    "@clack/prompts": "catalog:",
     "@crawler/eslint-config": "workspace:*",
-    "picocolors": "^1.1.1",
-    "tsx": "^4.20.5",
+    "eslint": "catalog:",
+    "picocolors": "catalog:",
+    "tsx": "catalog:",
     "vite": "catalog:",
     "vite-plus": "catalog:"
   },
@@ -28,9 +29,5 @@
       "version": "11.18.0",
       "onFail": "download"
     }
-  },
-  "engines": {
-    "node": ">=22.18.0"
-  },
-  "packageManager": "pnpm@11.18.0"
+  }
 }

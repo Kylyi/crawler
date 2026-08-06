@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vite-plus/test'
 import { createCrawlLogger, formatDuration } from './logger'
 
 function createCapturingLogger() {
-  const calls: Array<{ type: string; tag?: string; args: unknown[] }> = []
+  const calls: Array<{ type: string, tag?: string, args: unknown[] }> = []
   const consola = createConsola({
     level: 5,
     reporters: [
@@ -14,6 +14,7 @@ function createCapturingLogger() {
       },
     ],
   })
+
   return { calls, consola }
 }
 
@@ -51,7 +52,7 @@ describe('createCrawlLogger', () => {
     log.finish('list crawl succeeded', { tendersFound: 3 })
     log.finish('detail crawl completed with errors', { failed: 2 })
 
-    expect(calls.map((c) => c.type)).toEqual(['success', 'fail'])
+    expect(calls.map(c => c.type)).toEqual(['success', 'fail'])
   })
 
   it('adds progress fraction from index/total', () => {
@@ -74,7 +75,7 @@ describe('createCrawlLogger', () => {
     log.warn('slow')
     log.error('boom', { code: 429 })
 
-    expect(calls.map((c) => c.type)).toEqual(['warn', 'error'])
+    expect(calls.map(c => c.type)).toEqual(['warn', 'error'])
     expect(calls[1]?.args[1]).toEqual({ code: 429 })
   })
 })

@@ -1,12 +1,14 @@
 import { defineConfig } from 'vite-plus'
-import { eslintAlignedFmt, eslintAlignedLint } from '@crawler/eslint-config/oxlint'
 
 export default defineConfig({
   staged: {
-    '*': 'vp check --fix',
+    '*.{js,cjs,mjs,ts,cts,mts,tsx,vue,json,jsonc,yml,yaml,md,html,css}': 'eslint --fix',
   },
-  fmt: eslintAlignedFmt,
-  lint: eslintAlignedLint,
+  // Oxlint/Oxfmt disabled — ESLint handles lint + format (eslint-plugin-format).
+  check: {
+    lint: false,
+    fmt: false,
+  },
   run: {
     // Script caching captures stdio and breaks interactive Clack prompts (e.g. `vp run scripts`).
     cache: {

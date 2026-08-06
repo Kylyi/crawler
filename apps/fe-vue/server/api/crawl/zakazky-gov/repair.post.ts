@@ -3,5 +3,6 @@ import { repairEnrichedFieldsFromStoredDetail } from '../../../crawlers/zakazky-
 
 export default defineHandler(async () => {
   const repair = await repairEnrichedFieldsFromStoredDetail()
+
   return { ok: true, repair }
 })

@@ -21,7 +21,8 @@ export function normalizePortalTags(stitky?: string[]): string[] {
   if (!stitky?.length) {
     return []
   }
-  return stitky.map((tag) => tag.replace(/^#/, ''))
+
+  return stitky.map(tag => tag.replace(/^#/, ''))
 }
 
 export function deriveCategoriesFromTags(tags: string[]): string[] {
@@ -47,6 +48,7 @@ export function normalizeCpvCode(code: string): string {
   if (/^\d{8}$/.test(trimmed)) {
     return `${trimmed}-5`
   }
+
   return trimmed
 }
 
@@ -71,5 +73,6 @@ export function mergeCategories(...sets: string[][]): string[] {
       categories.add(category)
     }
   }
+
   return [...categories].sort()
 }

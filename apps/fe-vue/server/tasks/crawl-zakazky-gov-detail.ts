@@ -9,6 +9,7 @@ export default defineTask({
   },
   async run() {
     const result = await runZakazkyGovDetailCrawl(nitroCrawlStore)
+
     return { result: result.status, ...result }
   },
 })
