@@ -10,6 +10,7 @@
     "test": "vp test"
   },
   "dependencies": {
+    "@gentl/utilities": "workspace:*",
     "@pinia/colada": "catalog:",
     "@vueuse/core": "catalog:",
     "crawlers": "workspace:*",

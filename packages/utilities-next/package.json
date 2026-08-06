@@ -1,0 +1,90 @@
+{
+  "name": "@gentl/utilities",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./nuxt.config.ts",
+  "exports": {
+    ".": "./nuxt.config.ts",
+    "./core": "./core/index.ts",
+    "./vue": "./vue/index.ts",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "prepare": "nuxt prepare",
+    "typecheck": "nuxt prepare && nuxt typecheck && vue-tsc --noEmit -p core && vue-tsc --noEmit -p vue",
+    "typecheck:nuxt": "nuxt prepare && nuxt typecheck",
+    "typecheck:core": "vue-tsc --noEmit -p core",
+    "typecheck:vue": "vue-tsc --noEmit -p vue",
+    "update": "npx npm-check-updates -t latest --interactive"
+  },
+  "dependencies": {
+    "arktype": "2.2.1",
+    "axios": "1.18.1",
+    "change-case": "5.4.4",
+    "dayjs": "1.11.21",
+    "defu": "6.1.7",
+    "fuse.js": "7.4.2",
+    "jsonwebtoken": "9.0.3",
+    "klona": "2.0.6",
+    "lodash-es": "4.18.1",
+    "pathe": "2.0.3",
+    "utility-types": "3.11.0",
+    "uuid": "14.0.1",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "1.16.0",
+    "@nuxt/scripts": "1.2.1",
+    "@nuxtjs/i18n": "10.4.1",
+    "@types/jsonwebtoken": "9.0.10",
+    "@types/lodash-es": "4.17.12",
+    "@vueuse/core": "14.3.0",
+    "@vueuse/integrations": "14.3.0",
+    "@vueuse/nuxt": "14.3.0",
+    "nuxt": "4.5.1",
+    "typescript": "6.0.3",
+    "vue": "3.5.39",
+    "vue-i18n": "11.1.12",
+    "vue-router": "5.2.0",
+    "vue-tsc": "3.3.6"
+  },
+  "peerDependencies": {
+    "@nuxtjs/i18n": ">=9",
+    "@vueuse/core": "^14",
+    "@vueuse/integrations": "^14",
+    "nuxt": "^4",
+    "vue": "^3.5.0",
+    "vue-i18n": ">=9",
+    "vue-router": "^4 || ^5"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    },
+    "vue-i18n": {
+      "optional": true
+    },
+    "vue-router": {
+      "optional": true
+    },
+    "nuxt": {
+      "optional": true
+    },
+    "@nuxtjs/i18n": {
+      "optional": true
+    },
+    "@vueuse/core": {
+      "optional": true
+    },
+    "@vueuse/integrations": {
+      "optional": true
+    }
+  },
+  "gentl": {
+    "nuxtLayer": {
+      "name": "utilities",
+      "extends": []
+    }
+  }
+}
